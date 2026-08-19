@@ -95,7 +95,7 @@ jobs:
           fi
 
       - name: Validate HTML
-        uses: anishathalye/proof-html@21330b795d4bca6c32743151abbdbda6d361ad9c # v2.2.4
+        uses: anishathalye/proof-html@3cb0083534425b4902e6e77ac26ac3fe5b718f51 # v2.2.4
         continue-on-error: true
         with:
           directory: ${{ env.CHECK_DIR }}/site
