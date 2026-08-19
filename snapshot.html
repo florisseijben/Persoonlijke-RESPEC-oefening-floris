@@ -1,0 +1,1833 @@
+<!DOCTYPE html><html lang="nl"><head>
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta content="text/html; charset=utf-8" http-equiv="content-type">
+<meta name="generator" content="ReSpec 37.2.0">
+<style>
+.issue-label{text-transform:initial}
+.warning>p:first-child{margin-top:0}
+.warning{padding:.5em;border-left-width:.5em;border-left-style:solid}
+span.warning{padding:.1em .5em .15em}
+.issue.closed span.issue-number{text-decoration:line-through}
+.issue.closed span.issue-number::after{content:" (Closed)";font-size:smaller}
+.warning{border-color:#f11;border-color:var(--warning-border,#f11);border-width:.2em;border-style:solid;background:#fbe9e9;background:var(--warning-bg,#fbe9e9);color:#000;color:var(--text,#000)}
+.warning-title:before{content:"⚠";font-size:1.3em;float:left;padding-right:.3em;margin-top:-.3em}
+li.task-list-item{list-style:none}
+input.task-list-item-checkbox{margin:0 .35em .25em -1.6em;vertical-align:middle}
+.issue a.respec-gh-label{padding:5px;margin:0 2px 0 2px;font-size:10px;text-transform:none;text-decoration:none;font-weight:700;border-radius:4px;position:relative;bottom:2px;border:none;display:inline-block}
+</style>
+<style>
+dfn{cursor:pointer}
+.dfn-panel{position:absolute;z-index:35;min-width:300px;max-width:500px;padding:.5em .75em;margin-top:.6em;font-family:"Helvetica Neue",sans-serif;font-size:small;background:#fff;background:var(--indextable-hover-bg,#fff);color:#000;color:var(--text,#000);box-shadow:0 1em 3em -.4em rgba(0,0,0,.3),0 0 1px 1px rgba(0,0,0,.05);box-shadow:0 1em 3em -.4em var(--tocsidebar-shadow,rgba(0,0,0,.3)),0 0 1px 1px var(--tocsidebar-shadow,rgba(0,0,0,.05));border-radius:2px}
+.dfn-panel:not(.docked)>.caret{position:absolute;top:-9px}
+.dfn-panel:not(.docked)>.caret::after,.dfn-panel:not(.docked)>.caret::before{content:"";position:absolute;border:10px solid transparent;border-top:0;border-bottom:10px solid #fff;border-bottom-color:var(--indextable-hover-bg,#fff);top:0}
+.dfn-panel:not(.docked)>.caret::before{border-bottom:9px solid #a2a9b1;border-bottom-color:var(--indextable-hover-bg,#a2a9b1)}
+.dfn-panel *{margin:0}
+.dfn-panel b{display:block;color:#000;color:var(--text,#000);margin-top:.25em}
+.dfn-panel ul a[href]{color:#333;color:var(--text,#333)}
+.dfn-panel>div{display:flex}
+.dfn-panel a.self-link{font-weight:700;margin-right:auto}
+.dfn-panel .marker{padding:.1em;margin-left:.5em;border-radius:.2em;text-align:center;white-space:nowrap;font-size:90%;color:#040b1c}
+.dfn-panel .marker.dfn-exported{background:#d1edfd;box-shadow:0 0 0 .125em #1ca5f940}
+.dfn-panel .marker.idl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel .marker.cddl-block{background:#8ccbf2;box-shadow:0 0 0 .125em #0670b161}
+.dfn-panel a:not(:hover){text-decoration:none!important;border-bottom:none!important}
+.dfn-panel a[href]:hover{border-bottom-width:1px}
+.dfn-panel ul{padding:0}
+.dfn-panel li{margin-left:1em}
+.dfn-panel.docked{position:fixed;left:.5em;top:unset;bottom:2em;margin:0 auto;max-width:calc(100vw - .75em * 2 - .5em - .2em * 2);max-height:30vh;overflow:auto}
+</style>
+  
+  
+  
+  
+  
+  
+
+  
+  
+<script>document.title = respecConfig.title</script>
+<title>Geonovum template voor ReSpec</title>
+
+  
+  
+<link rel="shortcut icon" type="image/x-icon" href="https://docs.geostandaarden.nl/media/Geonovum.ico">
+
+  
+
+  
+  
+<style>
+div.imageinfo img {max-width: none;}
+</style>
+
+<style id="respec-mainstyle">
+@keyframes pop{
+0%{transform:scale(1,1)}
+25%{transform:scale(1.25,1.25);opacity:.75}
+100%{transform:scale(1,1)}
+}
+a.internalDFN{color:inherit;border-bottom:1px solid #99c;text-decoration:none}
+a.externalDFN{color:inherit;border-bottom:1px dotted #ccc;text-decoration:none}
+a.bibref{text-decoration:none}
+.respec-offending-element:target{animation:pop .25s ease-in-out 0s 1}
+.respec-offending-element,a[href].respec-offending-element{text-decoration:red wavy underline}
+@supports not (text-decoration:red wavy underline){
+.respec-offending-element:not(pre){display:inline-block}
+.respec-offending-element{background:url(data:image/gif;base64,R0lGODdhBAADAPEAANv///8AAP///wAAACwAAAAABAADAEACBZQjmIAFADs=) bottom repeat-x}
+}
+#references :target{background:#eaf3ff;animation:pop .4s ease-in-out 0s 1}
+@media (prefers-color-scheme:dark){
+#references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+}
+body:has(input[name=color-scheme][value=dark]:checked) #references :target{background:color-mix(in srgb, #eaf3ff 15%, transparent)}
+cite .bibref{font-style:italic}
+a[href].orcid{padding-left:4px;padding-right:4px}
+a[href].orcid>svg{margin-bottom:-2px}
+ol.tof,ul.tof{list-style:none outside none}
+.caption{margin-top:.5em;font-style:italic}
+#issue-summary>ul{column-count:2}
+#issue-summary li{list-style:none}
+details.respec-tests-details{margin-left:1em;display:inline-block;vertical-align:top}
+details.respec-tests-details>*{padding-right:2em}
+details.respec-tests-details[open]{z-index:999999;position:absolute;border:thin solid #cad3e2;border-radius:.3em;background-color:#fff;padding-bottom:.5em}
+details.respec-tests-details[open]>summary{border-bottom:thin solid #cad3e2;padding-left:1em;margin-bottom:1em;line-height:2em}
+details.respec-tests-details>ul{width:100%;margin-top:-.3em}
+details.respec-tests-details>li{padding-left:1em}
+.self-link:hover{opacity:1;text-decoration:none;background-color:transparent}
+aside.example .marker>a.self-link{color:inherit}
+.header-wrapper{display:flex;align-items:baseline}
+:is(h2,h3,h4,h5,h6):not(#toc>h2,#abstract>h2,#sotd>h2,.head>h2):has(+a.self-link){position:relative;left:-.5em}
+:is(h2,h3,h4,h5,h6):not(#toch2)+a.self-link{color:inherit;order:-1;position:relative;left:-.7em;font-size:1rem;opacity:.5}
+:is(h2,h3,h4,h5,h6)+a.self-link::before{content:"§";text-decoration:none;color:var(--heading-text)}
+:is(h2,h3)+a.self-link{top:-.2em}
+:is(h4,h5,h6)+a.self-link::before{color:#000}
+@media (max-width:767px){
+dd{margin-left:0}
+}
+@media print{
+.removeOnSave{display:none}
+}
+body:has(input[name=color-scheme][value=light]:checked),head:not(:has(meta[name=color-scheme][content~=dark]))+body{color-scheme:light}
+body:has(input[name=color-scheme][value=dark]:checked){color-scheme:dark}
+</style>
+<style id="respec-nlgov">
+img.license{float:left;padding-right:5px;background:0 0}
+</style>
+<meta name="color-scheme" content="light">
+<style>
+ul.index{columns:30ch;column-gap:1.5em}
+ul.index li{list-style:inherit}
+ul.index li span{color:inherit;cursor:pointer;white-space:normal}
+#index-defined-here ul.index li{font-size:.9rem}
+ul.index code{color:inherit}
+#index-defined-here .print-only{display:none}
+@media print{
+#index-defined-here .print-only{display:initial}
+}
+</style>
+<meta name="description" content="TODO: vul in abstract.md een abstract in.">
+<style>
+.hljs,body:has(input[name=color-scheme][value=light]:checked) .hljs,head:not(:has(meta[name=color-scheme][content~=dark]))+body .hljs{--base:#fafafa;--mono-1:#383a42;--mono-2:#686b77;--mono-3:#717277;--hue-1:#0b76c5;--hue-2:#336ae3;--hue-3:#a626a4;--hue-4:#42803c;--hue-5:#ca4706;--hue-5-2:#c91243;--hue-6:#986801;--hue-6-2:#9a6a01}
+@media (prefers-color-scheme:dark){
+.hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+}
+body:has(input[name=color-scheme][value=dark]:checked) .hljs{
+  --base: #282c34;
+  --mono-1: #abb2bf;
+  --mono-2: #818896;
+  --mono-3: #5c6370;
+  --hue-1: #56b6c2;
+  --hue-2: #61aeee;
+  --hue-3: #c678dd;
+  --hue-4: #98c379;
+  --hue-5: #e06c75;
+  --hue-5-2: #be5046;
+  --hue-6: #d19a66;
+  --hue-6-2: #e6c07b;
+}
+.hljs{display:block;overflow-x:auto;padding:.5em;color:#383a42;color:var(--mono-1,#383a42);background:#fafafa;background:var(--base,#fafafa)}
+.hljs-comment,.hljs-quote{color:#717277;color:var(--mono-3,#717277);font-style:italic}
+.hljs-doctag,.hljs-formula,.hljs-keyword{color:#a626a4;color:var(--hue-3,#a626a4)}
+.hljs-deletion,.hljs-name,.hljs-section,.hljs-selector-tag,.hljs-subst{color:#ca4706;color:var(--hue-5,#ca4706);font-weight:700}
+.hljs-literal{color:#0b76c5;color:var(--hue-1,#0b76c5)}
+.hljs-addition,.hljs-attribute,.hljs-meta-string,.hljs-regexp,.hljs-string{color:#42803c;color:var(--hue-4,#42803c)}
+.hljs-built_in,.hljs-class .hljs-title{color:#9a6a01;color:var(--hue-6-2,#9a6a01)}
+.hljs-attr,.hljs-number,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-pseudo,.hljs-template-variable,.hljs-type,.hljs-variable{color:#986801;color:var(--hue-6,#986801)}
+.hljs-bullet,.hljs-link,.hljs-meta,.hljs-selector-id,.hljs-symbol,.hljs-title{color:#336ae3;color:var(--hue-2,#336ae3)}
+.hljs-emphasis{font-style:italic}
+.hljs-strong{font-weight:700}
+.hljs-link{text-decoration:underline}
+</style>
+<style>
+
+  .sidelabel {
+    position: fixed;
+    -webkit-transform-origin: top right;
+    right: 100%;
+    top: 0;
+    -webkit-transform: rotate(-90deg);
+    padding: 4px 50px 4px 10px;
+    color: white;
+    white-space: nowrap;
+    z-index: 1;
+    background-color: #80CC28;
+  }
+</style>
+<script type="text/javascript">
+   /* Any custom mermaid.js scripts will go here. */
+  </script>
+<style>
+
+  /* Any custom mermaid.js scripts will go here. */
+  
+</style>
+<script charset="utf-8" data-webpack="respec-mermaid:chunk-937" src="https://cdn.jsdelivr.net/gh/digitalbazaar/respec-mermaid@1.3.0/dist/937.js"></script>
+<script id="initialUserConfig" type="application/json">{
+  "nl_organisationName": "Geonovum",
+  "nl_organisationStylesURL": "https://tools.geostandaarden.nl/respec/style/",
+  "nl_organisationPublishURL": "https://docs.geostandaarden.nl/",
+  "logos": [
+    {
+      "src": "https://docs.geostandaarden.nl/media/Geonovum.svg",
+      "alt": "Geonovum",
+      "id": "Geonovum",
+      "height": 67,
+      "width": 132,
+      "url": "https://www.geonovum.nl/geo-standaarden"
+    }
+  ],
+  "postProcess": [
+    null
+  ],
+  "latestVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "shortName",
+    "/"
+  ],
+  "thisVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "specStatus",
+    "-",
+    "specType",
+    "-",
+    "shortName",
+    "-",
+    "publishDate"
+  ],
+  "prevVersion": [
+    "nl_organisationPublishURL",
+    "pubDomain",
+    "/",
+    "previousMaturity",
+    "-",
+    "specType",
+    "-",
+    "shortName",
+    "-",
+    "previousPublishDate"
+  ],
+  "useLogo": true,
+  "useLabel": true,
+  "license": "cc-by",
+  "addSectionLinks": true,
+  "localizationStrings": {
+    "en": {
+      "wv": "Editor's draft",
+      "cv": "Candidate recommendation",
+      "vv": "Proposed recommendation",
+      "def": "Recommendation",
+      "ld": "Living document",
+      "basis": "Document",
+      "no": "Norm",
+      "st": "Standard",
+      "im": "Information model",
+      "pr": "Practical guideline",
+      "hr": "Guide",
+      "wa": "Work process agreement",
+      "al": "General",
+      "bd": "Governance documentation",
+      "bp": "Best practice"
+    },
+    "nl": {
+      "wv": "Werkversie",
+      "cv": "Consultatieversie",
+      "vv": "Versie ter vaststelling",
+      "def": "Vastgestelde versie",
+      "ld": "Levend document",
+      "basis": "Document",
+      "no": "Norm",
+      "st": "Standaard",
+      "im": "Informatiemodel",
+      "pr": "Praktijkrichtlijn",
+      "hr": "Handreiking",
+      "wa": "Werkafspraak",
+      "al": "Algemeen",
+      "bd": "Beheerdocumentatie",
+      "bp": "Best practice"
+    }
+  },
+  "sotdText": {
+    "nl": {
+      "sotd": "Status van dit document",
+      "def": "Dit is de definitieve versie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "wv": "Dit is een werkversie die op elk moment kan worden gewijzigd, verwijderd of vervangen door andere documenten. Het is geen stabiel document.",
+      "cv": "Dit is een consultatieversie.",
+      "vv": "Dit is de definitieve conceptversie van dit document. Wijzigingen naar aanleiding van consultaties zijn doorgevoerd.",
+      "basis": "Dit is een document zonder officiële status.",
+      "ld": "Dit is een levend document dat regelmatig gewijzigd wordt."
+    },
+    "en": {
+      "sotd": "Status of this document",
+      "def": "This is the definitive version of this document. Edits resulting from consultations have been applied.",
+      "wv": "This is a working draft that can be changed, removed or replaced by other documents at any time. It is not a stable document.",
+      "cv": "This is a stable draft, published for public comment.",
+      "vv": "This is the final draft of this document. Edits resulting from consultations have been applied.",
+      "basis": "This document has no official standing.",
+      "ld": "This is a living document, which is updated regularly."
+    }
+  },
+  "labelColor": {
+    "def": "#045D9F",
+    "wv": "#FF0000",
+    "cv": "#045D9F",
+    "vv": "#045D9F",
+    "basis": "#80CC28",
+    "ld": "#80CC28"
+  },
+  "licenses": {
+    "cc0": {
+      "name": "Creative Commons 0 Public Domain Dedication",
+      "short": "CC0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "image": "https://docs.geostandaarden.nl/media/CC-Licentie.svg"
+    },
+    "cc-by": {
+      "name": "Creative Commons Attribution 4.0 International Public License",
+      "short": "CC-BY",
+      "url": "https://creativecommons.org/licenses/by/4.0/legalcode",
+      "image": "https://docs.geostandaarden.nl/media/cc-by.svg"
+    },
+    "cc-by-nd": {
+      "name": "Creative Commons Naamsvermelding-GeenAfgeleideWerken 4.0 Internationaal",
+      "short": "CC-BY-ND",
+      "url": "https://creativecommons.org/licenses/by-nd/4.0/legalcode.nl",
+      "image": "https://docs.geostandaarden.nl/media/cc-by-nd.svg"
+    }
+  },
+  "localBiblio": {
+    "SemVer": {
+      "href": "https://semver.org",
+      "title": "Semantic Versioning 2.0.0",
+      "authors": [
+        "T. Preston-Werner"
+      ],
+      "date": "June 2013",
+      "id": "semver"
+    },
+    "MIM12": {
+      "id": "MIM12",
+      "title": "MIM - Metamodel Informatie Modellering (Versie 1.2)",
+      "href": "https://docs.geostandaarden.nl/mim/def-st-mim-20240613/",
+      "status": "Definitief",
+      "publisher": "Geonovum",
+      "date": "2024-06-13"
+    },
+    "3DTILES": {
+      "title": "3D Tiles Specification 1.0",
+      "href": "http://docs.opengeospatial.org/cs/18-053r2/18-053r2.html",
+      "status": "Approved for public release",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Patrick Cozzi",
+        "Sean Lilley",
+        "Gabby Getz"
+      ],
+      "date": "2019-01-31",
+      "id": "3DTILES"
+    },
+    "adr-mod-geo": {
+      "title": "API Design rules Module: Geospatial",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie-mod-geo/",
+      "status": "Consultatieversie",
+      "publisher": "Geonovum",
+      "editors": [
+        "Linda van den Brink"
+      ],
+      "authors": [
+        "Pieter Bresters",
+        "Linda van den Brink",
+        "Paul van Genuchten",
+        "George Mathijssen",
+        "Mark Strijker"
+      ],
+      "date": "2022-09-30",
+      "id": "adr-mod-geo"
+    },
+    "CIS10": {
+      "title": "ISO 19123-2:2018 Geographic information — Schema for coverage geometry and functions — Part 2: Coverage implementation schema",
+      "href": "https://www.iso.org/standard/70948.html",
+      "status": "Published",
+      "publisher": "ISD",
+      "date": "2018-10-01",
+      "id": "CIS10"
+    },
+    "CityGML2": {
+      "title": "OGC City Geography Markup Language (CityGML) Encoding Standard",
+      "href": "https://portal.ogc.org/files/?artifact_id=47842",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Gerhard Gröger",
+        "Thomas H. Kolbe",
+        "Claus Nagel",
+        "Karl-Heinz Häfele"
+      ],
+      "date": "2012-04-04",
+      "id": "CityGML2"
+    },
+    "CityGML3": {
+      "title": "OGC City Geography Markup Language (CityGML) Part 1: Conceptual Model Standard v3.0",
+      "href": "https://docs.ogc.org/is/20-010/20-010.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Thomas H. Kolbe",
+        "Tatjana Kutzner",
+        "Carl Stephen Smyth",
+        "Claus Nagel",
+        "Carsten Roensdorf",
+        "Charles Heazel"
+      ],
+      "date": "2021-09-13",
+      "id": "CityGML3"
+    },
+    "CityJSON": {
+      "title": "CityJSON Community Standard 1.0",
+      "href": "https://docs.ogc.org/cs/20-072r2/20-072r2.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Hugo Ledoux"
+      ],
+      "date": "2021-08-13",
+      "id": "CityJSON"
+    },
+    "COVJSON": {
+      "title": "OGC CoverageJSON Community Standard 1.0-draft_0.2.2",
+      "href": "https://portal.ogc.org/files/102051",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Chris Little",
+        "Jon Blower",
+        "Maik Riechert"
+      ],
+      "id": "COVJSON"
+    },
+    "CSW2APISO": {
+      "title": "OpenGIS Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile",
+      "href": "http://portal.opengeospatial.org/files/?artifact_id=21460",
+      "status": [
+        "Adopted specification"
+      ],
+      "publisher": "Open Geospatial Consortium",
+      "id": "CSW2APISO"
+    },
+    "CSWISOAP": {
+      "title": "OGC 07-045r2: OGC Catalogue Services Specification 2.0.2 - ISO Metadata Application Profile: Corrigendum, version 1.0.2",
+      "href": "https://portal.ogc.org/files/80534",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Uwe Voges",
+        "Kristian Senkler"
+      ],
+      "date": "2020-11-19",
+      "id": "CSWISOAP"
+    },
+    "DCAT-AP-2.1.1": {
+      "title": "DCAT Application Profile for data portals in Europe 2.1.1",
+      "href": "https://joinup.ec.europa.eu/collection/semantic-interoperability-community-semic/solution/dcat-application-profile-data-portals-europe/releases",
+      "publisher": "European Commission",
+      "date": "2022-06-24",
+      "id": "DCAT-AP-2.1.1"
+    },
+    "epsg": {
+      "title": "EPSG Geodetic Parameter Dataset",
+      "href": "https://epsg.org/home.html",
+      "status": "Published",
+      "publisher": "Geodesy Subcommittee of the IOGP Geomatics Committee",
+      "id": "epsg"
+    },
+    "FE20": {
+      "title": "OGC 09-026r2: OGC Filter Encoding 2.0 Encoding Standard - With Corrigendum, Version 2.0.3",
+      "href": "http://docs.opengeospatial.org/is/09-026r2/09-026r2.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "Panagiotis (Peter) A. Vretanos",
+      "date": "2014-08-18",
+      "id": "FE20"
+    },
+    "GeoPackage": {
+      "title": "OGC GeoPackage Encoding Standard - with Corrigendum, v1.3.1",
+      "href": "https://www.geopackage.org/spec131/",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Jeff Yutzler"
+      ],
+      "date": "2021-11-16",
+      "id": "GeoPackage"
+    },
+    "GEOSPARQL11": {
+      "title": "OGC GeoSPARQL - A Geographic Query Language for RDF Data",
+      "href": "https://opengeospatial.github.io/ogc-geosparql/geosparql11/spec.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Nicholas J. Car",
+        "Timo Homburg",
+        "Matthew Perry",
+        "John Herring",
+        "Frans Knibbe",
+        "Simon J.D. Cox",
+        "Joseph Abhayaratna",
+        "Mathias Bonduel"
+      ],
+      "date": "2022",
+      "id": "GEOSPARQL11"
+    },
+    "GeoTIFF": {
+      "title": "OGC GeoTIFF standard v1.1",
+      "href": "http://docs.opengeospatial.org/is/19-008r4/19-008r4.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Emmanuel Devys",
+        "Ted Habermann",
+        "Chuck Heazel",
+        "Roger Lott",
+        "Even Rouault"
+      ],
+      "date": "2019-09-14",
+      "id": "GeoTIFF"
+    },
+    "GIMEG": {
+      "href": "https://docs.geostandaarden.nl/nen3610/gimeg",
+      "publisher": "Geonovum",
+      "status": "Vastgesteld",
+      "authors": [
+        "Linda van den Brink",
+        "Paul Janssen",
+        "Wilko Quak"
+      ],
+      "title": "Geometrie in model en GML",
+      "date": "2021-03-26",
+      "id": "GIMEG"
+    },
+    "GML31": {
+      "title": "OpenGIS® Geography Markup Language (GML) Implementation Specification, v3.1.1",
+      "href": "https://portal.ogc.org/files/?artifact_id=4700",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Simon Cox",
+        "Paul Daisey",
+        "Ron Lake",
+        "Clemens Portele",
+        "Arliss Whiteside"
+      ],
+      "date": "2004-02-07",
+      "id": "GML31"
+    },
+    "GML33": {
+      "title": "OGC® Geography Markup Language (GML) — Extended schemas and encoding rules, v3.3",
+      "href": "https://portal.ogc.org/files/?artifact_id=46568",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Clemens Portele"
+      ],
+      "date": "2012-02-07",
+      "id": "GML33"
+    },
+    "GMLJPEG2000": {
+      "title": "OGC® GML in JPEG 2000 (GMLJP2) Encoding Standard Part 1: Core v.2.1",
+      "href": "http://docs.opengeospatial.org/is/08-085r8/08-085r8.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Lucio Colaiacomo",
+        "Joan Masó",
+        "Emmanuel Devys",
+        "Eric Hirschorn"
+      ],
+      "date": "2018-08-27",
+      "id": "GMLJPEG2000"
+    },
+    "GMLSF": {
+      "title": "Geography Markup Language (GML) simple features profile (with Corrigendum) (2.0)",
+      "href": "https://portal.ogc.org/files/?artifact_id=42729",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Linda van den Brink",
+        "Clemens Portele",
+        "Panagiotis (Peter) A. Vretanos"
+      ],
+      "date": "2012-04-05",
+      "id": "GMLSF"
+    },
+    "HDF5": {
+      "title": "OGC Hierarchical Data Format Version 5 (HDF5®) Core Standard",
+      "href": "http://docs.opengeospatial.org/is/18-043r3/18-043r3.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Aleksandar Jelenak",
+        "Ted Habermann",
+        "Gerd Heber"
+      ],
+      "date": "2019-03-27",
+      "id": "HDF5"
+    },
+    "HDFEOS": {
+      "title": "HDF-EOS5 Data Model, File Format and Library (v1.1)",
+      "href": "https://www.earthdata.nasa.gov/sites/default/files/imported/ESDS-RFC-008-v1.1.pdf",
+      "status": "Recommended",
+      "publisher": "NASA",
+      "editors": [
+        "Larry Klein",
+        "Abe Taaheri"
+      ],
+      "date": "2016-05-01",
+      "id": "HDFEOS"
+    },
+    "HRCRS": {
+      "title": "Handreiking Gebruik coördinaatreferentiesystemen bij uitwisseling en visualisatie van geo-informatie",
+      "href": "https://docs.geostandaarden.nl/crs/crs/",
+      "status": "Definitief",
+      "publisher": "Geonovum",
+      "editors": [
+        "Friso Penninga",
+        "Lennard Huisman"
+      ],
+      "date": "2022-03-14",
+      "id": "HRCRS"
+    },
+    "HRLFG": {
+      "title": "Geometrie in uitwisselingsformaten",
+      "href": "https://docs.geostandaarden.nl/g4w/geox/#inleiding",
+      "status": "Definitief",
+      "publisher": "Geonovum",
+      "editors": [
+        "Linda van den Brink",
+        "Gabriella Wiersma"
+      ],
+      "date": "2022-02-04",
+      "id": "HRLFG"
+    },
+    "HRTOEG": {
+      "title": "Handreiking digitaal toegankelijk locatiedata",
+      "href": "https://docs.geostandaarden.nl/visu/toeg/",
+      "status": "Vastgesteld",
+      "publisher": "Geonovum",
+      "editors": [
+        "Edward Mac Gillavry",
+        "Sjors Slaats",
+        "Theo OVerduin",
+        "Thijs Brentjens",
+        "Victor Zuydweg"
+      ],
+      "date": "2021-08-02",
+      "id": "HRTOEG"
+    },
+    "HRWC": {
+      "title": "Handreiking webcartografie",
+      "href": "https://www.geonovum.nl/uploads/standards/downloads/handreiking%20webcartografie%201.0.1_0.pdf",
+      "status": "Definitief",
+      "publisher": "Geonovum",
+      "date": "2010-11-18",
+      "id": "HRWC"
+    },
+    "I3S": {
+      "title": "OGC Indexed 3d Scene Layer (I3S) and Scene Layer Package (*.slpk) Format Community Standard Version 1.2",
+      "href": "http://docs.opengeospatial.org/cs/17-014r8/17-014r8.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Carl Reed",
+        "Tamrat Belayneh"
+      ],
+      "date": "2021-05-11",
+      "id": "I3S"
+    },
+    "IMMetingen": {
+      "title": "Informatiemodel Metingen",
+      "href": "https://www.sikb.nl/datastandaarden/richtlijnen/sikb0101",
+      "status": "Vastgesteld",
+      "publisher": "SIKB en IHW",
+      "id": "IMMetingen"
+    },
+    "INSGPGeopackage": {
+      "title": "GeoPackage encoding of INSPIRE datasets. INSPIRE good practise",
+      "href": "https://inspire.ec.europa.eu/good-practice/geopackage-encoding-inspire-datasets",
+      "status": "Candidate",
+      "publisher": "INSPIRE",
+      "id": "INSGPGeopackage"
+    },
+    "INSGPOAPIF": {
+      "title": "OGC API - Features as an INSPIRE download service",
+      "href": "https://inspire.ec.europa.eu/good-practice/ogc-api-%E2%80%93-features-inspire-download-service",
+      "status": "Endorsed Good Practice",
+      "publisher": "IOC TF",
+      "id": "INSGPOAPIF"
+    },
+    "INSGPSTA": {
+      "title": "OGC SensorThings API as an INSPIRE download service",
+      "href": "https://inspire.ec.europa.eu/good-practice/ogc-sensorthings-api-inspire-download-service",
+      "status": "Endorsed good practice",
+      "publisher": "INSPIRE Maintenance and Implementation Group (MIG)",
+      "id": "INSGPSTA"
+    },
+    "inspire-19115-19119": {
+      "title": "INSPIRE Metadata Implementing Rules: Technical Guidelines based on EN ISO 19115 and EN ISO 19119",
+      "href": "http://inspire.ec.europa.eu/documents/Metadata/INSPIRE_MD_IR_and_ISO_v1_2_20100616.pdf",
+      "authors": [
+        "Drafting Team Metadata and European Commission Joint Research Centre"
+      ],
+      "publisher": "European Commission Joint Research Centre",
+      "date": "2007-10-26",
+      "id": "inspire-19115-19119"
+    },
+    "inspire-cirmd": {
+      "title": "Corrigendum to INSPIRE Metadata Regulation",
+      "href": "https://eur-lex.europa.eu/legal-content/NL/TXT/PDF/?uri=CELEX:32008R1205R(02)&from=EN",
+      "authors": [
+        "Drafting Team Metadata and European Commission Joint Research Centre"
+      ],
+      "publisher": "European Commission Joint Research Centre",
+      "date": "2010-01-15",
+      "id": "inspire-cirmd"
+    },
+    "inspire-crs": {
+      "title": "INSPIRE Data Specification on Coordinate Reference Systems - Technical Guidelines",
+      "href": "https://inspire.ec.europa.eu/id/document/tg/rs",
+      "status": "Published",
+      "publisher": "INSPIRE Thematic Working Group Coordinate Reference Systems & Geographical Grid Systems",
+      "date": "2014-04-16",
+      "id": "inspire-crs"
+    },
+    "inspire-gcm": {
+      "title": "Generic Conceptual Model of the INSPIRE data specifications",
+      "href": "https://inspire.ec.europa.eu/documents/inspire-generic-conceptual-model",
+      "status": "Published",
+      "publisher": "INSPIRE Drafting Team Data Specifications",
+      "date": "2014-04-07",
+      "id": "inspire-gcm"
+    },
+    "inspire-gen": {
+      "title": "Guidelines for the encoding of spatial data",
+      "href": "https://inspire.ec.europa.eu/documents/guidelines-encoding-spatial-data",
+      "status": "Published",
+      "publisher": "INSPIRE Drafting Team Data Specifications",
+      "date": "2014-04-08",
+      "id": "inspire-gen"
+    },
+    "inspire-ggs": {
+      "title": "Guidelines INSPIRE Data Specification on Geographical Grid Systems - Technical Guidelines",
+      "href": "https://inspire.ec.europa.eu/id/document/tg/gg",
+      "status": "Published",
+      "publisher": "INSPIRE Thematic Working Group Coordinate Reference Systems & Geographical Grid Systems",
+      "date": "2014-04-16",
+      "id": "inspire-ggs"
+    },
+    "inspire-irmd": {
+      "title": "Implementing Rules for Metadata",
+      "href": "http://eur-lex.europa.eu/legal-content/EN/ALL/?uri=CELEX:32008R1205",
+      "authors": [
+        "Drafting Team Metadata and European Commission Joint Research Centre"
+      ],
+      "publisher": "European Commission Joint Research Centre",
+      "date": "2008-12-03",
+      "id": "inspire-irmd"
+    },
+    "inspire-mds": {
+      "title": "Methodology for the development of data specifications: baseline version (D 2.6, Version 3.0)",
+      "href": "https://inspire.ec.europa.eu/documents/methodology-development-data-specifications-baseline-version-d-26-version-30",
+      "status": "Published",
+      "publisher": "INSPIRE Drafting Team Data Specifications",
+      "date": "2008-04-06",
+      "id": "inspire-mds"
+    },
+    "inspire-TG-metadata": {
+      "title": "Technical Guidance for the implementation of INSPIRE dataset and service metadata based on ISO/TS 19139:2007",
+      "href": "https://github.com/INSPIRE-MIF/technical-guidelines/blob/2022.2/metadata/metadata-iso19139/metadata-iso19139.adoc",
+      "status": [
+        "Tehnical Guidance"
+      ],
+      "authors": [
+        "Temporary MIWP 2021-2024 sub-group 2.3.1"
+      ],
+      "publisher": "INSPIRE Maintenance and Implementation Group (MIG)",
+      "date": "2022-08-01",
+      "id": "inspire-TG-metadata"
+    },
+    "INSTGDiS": {
+      "title": "Technical Guidance for the implementation of Inspire Discovery Service, version 3.1",
+      "href": "https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-discovery-services-0",
+      "status": "Approved",
+      "publisher": "IOC TF",
+      "date": "2011-11-07",
+      "id": "INSTGDiS"
+    },
+    "INSTGDS": {
+      "title": "Technical Guidance for the implementation of Inspire Download Services",
+      "href": "https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-download-services",
+      "status": "Approved",
+      "publisher": "IOC TF",
+      "date": "2013-08-09",
+      "id": "INSTGDS"
+    },
+    "INSTGDSSOS": {
+      "title": "Technical Guidance for implementing download services using the OGC Sensor Observation Service and ISO 19143 Filter Encoding, version 1.0",
+      "href": "https://inspire.ec.europa.eu/id/document/tg/download-sos",
+      "status": "Approved",
+      "publisher": "INSPIRE Maintenance and Implementation Group (MIG)",
+      "date": "2016-12-16",
+      "id": "INSTGDSSOS"
+    },
+    "INSTGDSWCS": {
+      "title": "Technical Guidance for the implementation of Inspire Download Services using Web Coverage Services (WCS), version 1.0",
+      "href": "https://inspire.ec.europa.eu/id/document/tg/download-wcs",
+      "status": "Approved",
+      "publisher": "INSPIRE Maintenance and Implementation Group (MIG)",
+      "date": "2016-12-16",
+      "id": "INSTGDSWCS"
+    },
+    "INSTGVS": {
+      "title": "Technical Guidance for the implementation of Inspire View Service",
+      "href": "https://inspire.ec.europa.eu/documents/technical-guidance-implementation-inspire-view-services-1",
+      "status": "Definitief",
+      "publisher": "IOC TF",
+      "date": "2022-08-01",
+      "id": "INSTGVS"
+    },
+    "ISO15836": {
+      "title": "ISO 15836: 2004, Information and documentation - The Dublin Core metadata element set",
+      "href": "https://www.iso.org/standard/37629.htm",
+      "publisher": "International Organization for Standardization",
+      "date": "2004",
+      "id": "ISO15836"
+    },
+    "ISO19101": {
+      "title": "ISO 19101-1:2014 Geographic information — Reference model — Part 1: Fundamentals",
+      "href": "https://www.iso.org/standard/59164.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2014-11-01",
+      "id": "ISO19101"
+    },
+    "ISO19103": {
+      "title": "ISO 19103:2015 Geographic information — Conceptual schema language",
+      "href": "https://www.iso.org/standard/56734.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2015-12-01",
+      "id": "ISO19103"
+    },
+    "ISO19107": {
+      "title": "ISO 19107:2019 Geographic information — Spatial schema",
+      "href": "https://www.iso.org/standard/66175.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2019-12-01",
+      "id": "ISO19107"
+    },
+    "ISO19108": {
+      "title": "ISO 19108:2002 Geographic information — Temporal schema",
+      "href": "https://www.iso.org/standard/26013.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2012-12-08",
+      "id": "ISO19108"
+    },
+    "ISO19109": {
+      "title": "ISO 19109:2015 Geographic information — Rules for application schema",
+      "href": "https://www.iso.org/standard/59193.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2015-12-01",
+      "id": "ISO19109"
+    },
+    "ISO19110": {
+      "title": "ISO 19110:2016 Geographic information — Methodology for feature cataloguing",
+      "href": "https://www.iso.org/standard/57303.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2016-12-01",
+      "id": "ISO19110"
+    },
+    "ISO19111": {
+      "title": "ISO 19111:2019 Geographic information — Referencing by coordinates",
+      "href": "https://www.iso.org/standard/74039.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2019-01-01",
+      "id": "ISO19111"
+    },
+    "ISO19115-2003": {
+      "title": "ISO 19115:2003  Geographic information -- Metadata",
+      "href": "https://www.iso.org/standard/26020.html",
+      "status": [
+        "Adopted specification"
+      ],
+      "publisher": "International Organization for Standardization",
+      "date": "2003-05-01",
+      "id": "ISO19115-2003"
+    },
+    "ISO19115-2006": {
+      "title": "ISO 19115:2003/Cor 1:2006 Geographic information — Metadata — Technical Corrigendum 1",
+      "href": "https://www.iso.org/standard/26020.html",
+      "status": [
+        "Adopted specification"
+      ],
+      "publisher": "International Organization for Standardization",
+      "date": "2006-06-01",
+      "id": "ISO19115-2006"
+    },
+    "ISO19115-2009": {
+      "title": "ISO 19115-2:2009 Geographic information — Metadata — Part 2: Extensions for imagery and gridded data",
+      "href": "https://www.iso.org/standard/39229.html",
+      "publisher": "International Organization for Standardization",
+      "date": "2009-02-01",
+      "id": "ISO19115-2009"
+    },
+    "ISO19115-2014": {
+      "title": "ISO 19115-1:2014 Geographic information — Metadata — Part 1: Fundamentals",
+      "href": "https://www.iso.org/standard/53798.html",
+      "publisher": "International Organization for Standardization",
+      "date": "2014-04-01",
+      "id": "ISO19115-2014"
+    },
+    "ISO19117": {
+      "title": "ISO 19117:2012 Geographic Information - Portrayal",
+      "href": "https://www.iso.org/standard/46226.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2012-12-01",
+      "id": "ISO19117"
+    },
+    "ISO19118": {
+      "title": "ISO 19118:2011 Geographic information — Encoding",
+      "href": "https://www.iso.org/standard/44212.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2011-10-01",
+      "id": "ISO19118"
+    },
+    "ISO19119": {
+      "title": "Geographic information - Services",
+      "href": "https://www.iso.org/standard/39890.html",
+      "publisher": "International Organization for Standardization",
+      "date": "2005-02-01",
+      "id": "ISO19119"
+    },
+    "ISO19119-2005": {
+      "title": "ISO 19119:2005 Geographic information — Services",
+      "href": "https://www.iso.org/standard/39890.html",
+      "publisher": "International Organization for Standardization",
+      "date": "2005-02-01",
+      "id": "ISO19119-2005"
+    },
+    "ISO19119-2008": {
+      "title": "ISO 19119:2005/Amd 1:2008 Geographic information — Services — Amendment 1: Extensions of the service metadata model",
+      "href": "https://www.iso.org/standard/44268.html",
+      "publisher": "International Organization for Standardization",
+      "date": "2008-05-01",
+      "id": "ISO19119-2008"
+    },
+    "ISO19126-2009": {
+      "title": "ISO 19126:2009 Geographic information - Feature concept dictionaries and registers",
+      "href": "https://www.iso.org/standard/44875.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2009-11-01",
+      "id": "ISO19126-2009"
+    },
+    "ISO19131": {
+      "title": "ISO 19131:2022 Geographic information — Data product specifications",
+      "href": "https://www.iso.org/standard/85092.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2022-11-01",
+      "id": "ISO19131"
+    },
+    "ISO19136": {
+      "title": "ISO 19136-1:2020 Geographic information — Geography Markup Language (GML) — Part 1: Fundamentals",
+      "href": "https://www.iso.org/standard/75676.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2020-01-01",
+      "id": "ISO19136"
+    },
+    "ISO19139": {
+      "title": "ISO/TS 19139:2007 Geographic information - Metadata - XML schema implementation",
+      "href": "https://www.iso.org/standard/32557.html",
+      "status": [
+        "Adopted specification"
+      ],
+      "publisher": "International Organization for Standardization",
+      "date": "2007-04-01",
+      "id": "ISO19139"
+    },
+    "ISO6709": {
+      "title": "ISO 6709:2022 Standard representation of geographic point location by coordinates",
+      "href": "https://www.iso.org/standard/75147.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2022-09-01",
+      "id": "ISO6709"
+    },
+    "ISOJPEG2000": {
+      "title": "ISO/IEC 15444-1:2019 Information technology — JPEG 2000 image coding system — Part 1: Core coding system",
+      "href": "https://www.iso.org/standard/78321.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2019-10-01",
+      "id": "ISOJPEG2000"
+    },
+    "ISOts19127": {
+      "title": "ISO/TS 19127 Geographic Information - Geodetic codes and parameters",
+      "href": "https://www.iso.org/standard/41784.html",
+      "status": "Published",
+      "publisher": "ISO",
+      "date": "2005-06-01",
+      "id": "ISOts19127"
+    },
+    "JSON-FG": {
+      "title": "OGC Features and Geometries JSON - Part 1: Core",
+      "href": "https://docs.ogc.org/DRAFTS/21-045.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Clemens Portele",
+        "Panagiotis (Peter) A. Vretanos"
+      ],
+      "id": "JSON-FG"
+    },
+    "MBS": {
+      "title": "Mapbox GL JS Style Specification",
+      "href": "https://docs.mapbox.com/mapbox-gl-js/style-spec/",
+      "status": "Unofficial",
+      "publisher": "Mapbox",
+      "id": "MBS"
+    },
+    "MIM": {
+      "title": "MIM - Metamodel Informatie Modellering",
+      "href": "https://docs.geostandaarden.nl/mim/mim/",
+      "status": "Vastgesteld",
+      "publisher": "Geonovum",
+      "editors": [
+        "Dick Krijtenburg",
+        "Paul Janssen",
+        "Lennart van Bergen"
+      ],
+      "authors": [
+        "Lennart van Bergen",
+        "Thies Mesdag",
+        "Marco Brattinga",
+        "Paul Janssen",
+        "Pano Maria",
+        "Johan Boer"
+      ],
+      "date": "2022-02-17",
+      "id": "MIM"
+    },
+    "NEN3610": {
+      "title": "NEN 3610:2022 nl - BBasismodel geo-informatie - Termen, definities, relaties en algemene regels voor de uitwisseling van informatie over aan de aarde gerelateerde ruimtelijke objecten",
+      "href": "https://www.nen.nl/nen-3610-2022-nl-296137",
+      "status": "Definitief",
+      "publisher": "NEN",
+      "date": "2022-05-31",
+      "id": "NEN3610"
+    },
+    "NETCDF": {
+      "title": "OGC Network Common Data Form (NetCDF) Core Encoding Standard version 1.0",
+      "href": "https://portal.ogc.org/files/?artifact_id=43732",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Ben Domenico"
+      ],
+      "date": "2011-04-05",
+      "id": "NETCDF"
+    },
+    "NLAPIS": {
+      "title": "API Strategie Algemeen (Nederlandse API Strategie I)",
+      "href": "https://docs.geostandaarden.nl/api/API-Strategie/",
+      "status": "Vastgesteld",
+      "publisher": "Geonovum",
+      "date": "2022-03-09",
+      "id": "NLAPIS"
+    },
+    "NLDP": {
+      "title": "NEN 3610 - Linked Data",
+      "href": "https://docs.geostandaarden.nl/nen3610/nldp/",
+      "status": "Vastgesteld",
+      "publisher": "Geonovum",
+      "editors": [
+        "Paul Janssen"
+      ],
+      "authors": [
+        "Linda van den Brink",
+        "Marco Brattinga",
+        "Marinus Vonhof",
+        "Niels Hoffmann",
+        "Pano Maria",
+        "Hans Schevers",
+        "Ronald van Lanen",
+        "Joep van Genuchten"
+      ],
+      "date": "2020-03-23",
+      "id": "NLDP"
+    },
+    "NLISO19115": {
+      "title": "Nederlands metadata profiel op ISO 19115 voor geografie versie 2.1.0",
+      "href": "https://docs.geostandaarden.nl/md/mdprofiel-iso19115/",
+      "status": "Vastgestelde versie",
+      "publisher": "Geonovum",
+      "date": "2020-06-30",
+      "id": "NLISO19115"
+    },
+    "NLISO19119": {
+      "title": "Nederlands metadata profiel op ISO 19119 voor services versie 2.1.0",
+      "href": "https://docs.geostandaarden.nl/md/mdprofiel-iso19119/",
+      "status": "Vastgestelde versie",
+      "publisher": "Geonovum",
+      "date": "2020-06-30",
+      "id": "NLISO19119"
+    },
+    "NL-SBB-20241010": {
+      "title": "NNL-SBB - Standaard voor het beschrijven van begrippen",
+      "href": "https://docs.geostandaarden.nl/nl-sbb/def-st-nl-sbb-20241010/",
+      "status": "Vastgestelde versie",
+      "publisher": "Geonovum",
+      "date": "2024-10-10",
+      "id": "NL-SBB-20241010"
+    },
+    "NLWFS": {
+      "title": "Nederlands profiel op ISO 19142 Geographic information — Web Feature Service, Versie 1.1",
+      "href": "https://www.geonovum.nl/geo-standaarden/services/nederlands-wfs-profiel-11-op-iso-19142-voor-web-feature-services-20",
+      "status": "Definitief",
+      "publisher": "Geonovum",
+      "date": "2015-04-24",
+      "id": "NLWFS"
+    },
+    "NLWMS": {
+      "title": "Nederlands profiel op ISO 19128 Geographic information — Web Map Server Interface",
+      "href": "https://www.geonovum.nl/uploads/documents/nederlands_profiel_op_iso_19128_wms_1.3_-_versie_1.0.pdf",
+      "status": "Vastgesteld",
+      "publisher": "Geonovum",
+      "date": "2015-04-24",
+      "id": "NLWMS"
+    },
+    "OaMt1": {
+      "title": "OGC Timeseries Profile of Observations and Measurements v1.0",
+      "href": "http://docs.opengeospatial.org/is/15-043r3/15-043r3.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "James Tomkins",
+        "Dominic Lowe"
+      ],
+      "id": "OaMt1"
+    },
+    "OaMx2": {
+      "title": "Observations and Measurements - XML Implementation v2.0",
+      "href": "https://portal.ogc.org/files/?artifact_id=41510",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Simon Cox"
+      ],
+      "id": "OaMx2"
+    },
+    "OAPIC": {
+      "title": "OGC 19-087: OGC API - Coverages - Part 1: Core, version 0.0.6",
+      "href": "http://docs.ogc.org/DRAFTS/19-087.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Charles Heazel",
+        "Jerome St-Louis"
+      ],
+      "id": "OAPIC"
+    },
+    "OAPIEDR": {
+      "title": "OGC 19-086r5: OGC API - Environmental Data Retrieval Standard, Version 1.0.1",
+      "href": "https://docs.ogc.org/is/19-086r5/19-086r5.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Mark Burgoyne",
+        "David Blodgett",
+        "Charles Heazel",
+        "Chris Little"
+      ],
+      "date": "2022-08-05",
+      "id": "OAPIEDR"
+    },
+    "OAPIF1": {
+      "title": "OGC 17-069r4: OGC API - Features - Part 1: Core corrigendum, Version 1.0.1",
+      "href": "https://docs.opengeospatial.org/is/17-069r4/17-069r4.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Panagiotis (Peter) A. Vretanos",
+        "Clemens Portele",
+        "Charles Heazel"
+      ],
+      "date": "2022-05-11",
+      "id": "OAPIF1"
+    },
+    "OAPIF2": {
+      "title": "OGC 18-058: OGC API - Features - Part 2: Coordinate Reference Systems by Reference, Version 1.0",
+      "href": "https://docs.opengeospatial.org/is/18-058r1/18-058r1.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Panagiotis (Peter) A. Vretanos",
+        "Clemens Portele"
+      ],
+      "date": "2020-11-02",
+      "id": "OAPIF2"
+    },
+    "OAPIF3": {
+      "title": "OGC 19-079r1: OGC API - Features - Part 3: Filtering, Version 1.0.0-rc1",
+      "href": "http://docs.ogc.org/DRAFTS/19-079r1.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Panagiotis (Peter) A. Vretanos",
+        "Clemens Portele"
+      ],
+      "id": "OAPIF3"
+    },
+    "OAPIF4": {
+      "title": "OGC 20-002: OGC API - Features - Part 4: Create, Replace, Update and Delete, Version 1.0.0 snapshot (editor's draft",
+      "href": "http://docs.ogc.org/DRAFTS/20-002.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Panagiotis (Peter) A. Vretanos",
+        "Clemens Portele"
+      ],
+      "id": "OAPIF4"
+    },
+    "OAPIMAPS": {
+      "title": "OGC 20-058: OGC API - Maps - Part 1: Core, Version 0.1.0",
+      "href": "http://docs.ogc.org/DRAFTS/20-058.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "Joan Masó",
+      "date": "2022-06-06",
+      "id": "OAPIMAPS"
+    },
+    "OAPIRECORDS1": {
+      "title": "OGC 20-224: OGC API - Records - Part 1: Core",
+      "href": "http://docs.ogc.org/DRAFTS/20-004.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Panagiotis (Peter) A. Vretanos",
+        "Tom Kralidis",
+        "Charles Heazel"
+      ],
+      "date": "2020-01-13",
+      "id": "OAPIRECORDS1"
+    },
+    "OAPISTYLES": {
+      "title": "OGC 20-009: OGC API Styles",
+      "href": "http://docs.opengeospatial.org/DRAFTS/20-009.html",
+      "status": "Draft",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "C. Portele",
+      "id": "OAPISTYLES"
+    },
+    "OAPITILES1": {
+      "title": "OGC 20-057: OGC API - Tiles - Part 1: Core",
+      "href": "https://docs.ogc.org/is/20-057/20-057.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Joan Masó",
+        "Jérôme St-Louis"
+      ],
+      "date": "26-08-2022",
+      "id": "OAPITILES1"
+    },
+    "OMS3": {
+      "title": "OGC Abstract Specification Topic 20: Observations, measurements and samples v3.0.0",
+      "href": "https://docs.ogc.org/as/20-082r4/20-082r4.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Katharina Schleidt",
+        "Ilkka Rinne"
+      ],
+      "date": "2023-05-26",
+      "id": "OMS3"
+    },
+    "OREFCO": {
+      "title": "OGC Abstract Specification Topic 2: Referencing by coordinates",
+      "href": "http://docs.opengeospatial.org/as/18-005r4/18-005r4.html",
+      "status": "OGC® Publicly Available Standard",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Roger Lott"
+      ],
+      "date": "2019-02-08",
+      "id": "OREFCO"
+    },
+    "SE11": {
+      "title": "OGC 05-077r4: OpenGIS Symbology Encoding Implementation Specification, version 1.1",
+      "href": "https://portal.ogc.org/files/?artifact_id=16700",
+      "status": "Final version",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "date": "2006-07-21",
+      "id": "SE11"
+    },
+    "SensorML": {
+      "title": "OGC SensorML: Model and XML Encoding Standard v2.1",
+      "href": "http://docs.ogc.org/is/12-000r2/12-000r2.html",
+      "status": "Published",
+      "publisher": "Open Geospatial Consortium",
+      "editors": [
+        "Mike Botts",
+        "Alexandre Robin",
+        "Eric Hirschorn"
+      ],
+      "date": "2020-08-10",
+      "id": "SensorML"
+    },
+    "SLD11": {
+      "title": "OGC 05-078r4: Styled Layer Descriptor profile of the Web Map Service Implementation Specification, Version 1.1",
+      "href": "http://portal.opengeospatial.org/files/?artifact_id=22364",
+      "status": "Final version",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "date": "2007-06-29",
+      "id": "SLD11"
+    },
+    "STAS": {
+      "title": "OGC 18-088: OGC SensorThings API Part 1 - Sensing, Version 1.1",
+      "href": "https://docs.ogc.org/is/18-088/18-088.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Steve Liang",
+        "Tania Khalafbeigi",
+        "Hylke van der Schaaf"
+      ],
+      "date": "2021-08-04",
+      "id": "STAS"
+    },
+    "STAT": {
+      "title": "OGC 17-079r1: OGC SensorThings API Part 1 - Tasking Core, Version 1.0",
+      "href": "http://docs.opengeospatial.org/is/17-079r1/17-079r1.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": [
+        "Steve Liang",
+        "Tania Khalafbeigi"
+      ],
+      "date": "2019-01-08",
+      "id": "STAT"
+    },
+    "WCS21": {
+      "title": "OGC 17-089r1: OGC Web Coverage Service (WCS) 2.1 Interface Standard - Core",
+      "href": "http://docs.opengeospatial.org/is/17-089r1/17-089r1.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "date": "2018-08-16",
+      "id": "WCS21"
+    },
+    "WFS11": {
+      "title": "Web Feature Service Implementation Specification with Corrigendum, Version 1.1.3",
+      "href": "http://docs.opengeospatial.org/is/04-094r1/04-094r1.html",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "Panagiotis A. Vretanos",
+      "date": "2016-10-26",
+      "id": "WFS11"
+    },
+    "WMC11": {
+      "title": "OpenGIS 05-005: Web Map Context Documents Implementation Specification, version 1.1",
+      "href": "https://portal.ogc.org/files/?artifact_id=8618",
+      "status": "Adopted specification",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "J. Sonnet",
+      "date": "2005-01-19",
+      "id": "WMC11"
+    },
+    "WMCC11": {
+      "title": "OpenGIS 08-050: Corrigendum for OpenGIS Implementation Standard Web Map Context Documents - Corrigendum 1",
+      "href": "https://portal.ogc.org/files/?artifact_id=27286",
+      "status": "Approved",
+      "publisher": "Open Geospatial Consortium (OGC)",
+      "editors": "T. Kralidis",
+      "date": "2008-03-14",
+      "id": "WMCC11"
+    }
+  },
+  "title": "Geonovum template voor ReSpec",
+  "specStatus": "basis",
+  "specType": "HR",
+  "pubDomain": "3dbv",
+  "shortName": "nl-respec-template",
+  "publishDate": "2026-02-09",
+  "publishVersion": [],
+  "editors": [
+    {
+      "name": "voornaam achternaam",
+      "company": "Geonovum",
+      "companyURL": "https://www.geonovum.nl"
+    }
+  ],
+  "authors": [
+    {
+      "name": "voornaam achternaam",
+      "company": "Geonovum",
+      "companyURL": "https://www.geonovum.nl"
+    }
+  ],
+  "github": "https://github.com/Geonovum/NL-ReSpec-template"
+}</script>
+<link rel="stylesheet" href="https://tools.geostandaarden.nl/respec/style/base.css"></head>
+
+<body class="h-entry"><div class="head">
+    <a class="logo" href="https://www.geonovum.nl/geo-standaarden"><img alt="Geonovum" height="67" id="Geonovum" src="https://docs.geostandaarden.nl/media/Geonovum.svg" width="132">
+  </a> <h1 id="title" class="title">Geonovum template voor ReSpec</h1>
+    
+    <h2>
+      Geonovum Handreiking<br>
+      Document
+      <time class="dt-published" datetime="2026-02-09">09 februari 2026</time>
+    </h2>
+    <dl>
+      <dt>Deze versie:</dt><dd class="status">
+              <a class="u-url status" href="https://docs.geostandaarden.nl/3dbv/basis-hr-nl-respec-template-20260209">https://docs.geostandaarden.nl/3dbv/basis-hr-nl-respec-template-20260209</a>
+            </dd>
+      <dt>Laatst gepubliceerde versie:</dt><dd>
+              <a href="https://docs.geostandaarden.nl/3dbv/nl-respec-template/">https://docs.geostandaarden.nl/3dbv/nl-respec-template/</a>
+            </dd>
+      <dt>Laatste werkversie:</dt><dd><a href="https://geonovum.github.io/NL-ReSpec-template/">https://geonovum.github.io/NL-ReSpec-template/</a></dd>
+      
+      
+      
+      
+      
+      <dt>Redacteur:</dt>
+      <dd class="editor p-author h-card vcard">
+    <span class="p-name fn">voornaam achternaam</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
+  </dd>
+      
+      <dt>Auteur:</dt><dd class="editor p-author h-card vcard">
+    <span class="p-name fn">voornaam achternaam</span> (<a class="p-org org h-org" href="https://www.geonovum.nl">Geonovum</a>)
+  </dd>
+      <dt>Doe mee:</dt><dd>
+    <a href="https://github.com/Geonovum/NL-ReSpec-template/">GitHub Geonovum/NL-ReSpec-template</a>
+  </dd><dd>
+    <a href="https://github.com/Geonovum/NL-ReSpec-template/issues/">All issues</a>
+  </dd><dd>
+    <a href="https://github.com/Geonovum/NL-ReSpec-template/issues/new/choose">Dien een melding in</a>
+  </dd><dd>
+    <a href="https://github.com/Geonovum/NL-ReSpec-template/commits/">Revisiehistorie</a>
+  </dd><dd>
+    <a href="https://github.com/Geonovum/NL-ReSpec-template/pulls/">Pull requests</a>
+  </dd>
+    </dl>
+    
+    
+    
+    <p class="copyright">
+            Dit document valt onder de volgende licentie: 
+            <a rel="license" href="https://creativecommons.org/licenses/by/4.0/legalcode" class="subfoot"><img class="license" src="https://docs.geostandaarden.nl/media/cc-by.svg" alt="Logo Creative Commons Attribution 4.0 International Public License"><br> Creative Commons Attribution 4.0 International Public License</a>
+          </p>
+    <hr title="Separator for header">
+  </div>
+
+<section id="abstract" class="introductory"><h2>Samenvatting</h2><p>TODO: vul in abstract.md een abstract in.</p>
+</section>
+<section id="sotd" class="introductory"><h2>Status van dit document</h2><p>Dit is een document zonder officiële status.</p></section><nav id="toc"><h2 class="introductory" id="inhoudsopgave">Inhoudsopgave</h2><ol class="toc"><li class="tocline"><a class="tocxref" href="#abstract">Samenvatting</a></li><li class="tocline"><a class="tocxref" href="#sotd">Status van dit document</a></li><li class="tocline"><a class="tocxref" href="#niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#een-subparagraaf"><bdi class="secno">1.1 </bdi>Een subparagraaf</a></li></ol></li><li class="tocline"><a class="tocxref" href="#meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#definities"><bdi class="secno">2.1 </bdi>Definities</a></li><li class="tocline"><a class="tocxref" href="#afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</a></li><li class="tocline"><a class="tocxref" href="#referenties"><bdi class="secno">2.3 </bdi>Referenties</a></li><li class="tocline"><a class="tocxref" href="#optioneel"><bdi class="secno">2.4 </bdi>Optioneel</a></li></ol></li><li class="tocline"><a class="tocxref" href="#mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</a></li><li class="tocline"><a class="tocxref" href="#conformance"><bdi class="secno">4. </bdi>Conformiteit</a></li><li class="tocline"><a class="tocxref" href="#tof"><bdi class="secno">5. </bdi>Lijst met figuren</a></li><li class="tocline"><a class="tocxref" href="#index"><bdi class="secno">A. </bdi>Index</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#index-defined-here"><bdi class="secno">A.1 </bdi>Termen gedefinieerd door deze specificatie</a></li><li class="tocline"><a class="tocxref" href="#index-defined-elsewhere"><bdi class="secno">A.2 </bdi>Termen gedefinieerd door verwijzing</a></li></ol></li><li class="tocline"><a class="tocxref" href="#references"><bdi class="secno">B. </bdi>Referenties</a><ol class="toc"><li class="tocline"><a class="tocxref" href="#normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</a></li></ol></li></ol></nav>
+
+
+<section class="informative" id="niet-normatieve-deel"><div class="header-wrapper"><h2 id="x1-niet-normatieve-deel"><bdi class="secno">1. </bdi>Niet-normatieve deel</h2><a class="self-link" href="#niet-normatieve-deel" aria-label="Permalink for Section 1."></a></div><p><em>Dit onderdeel is niet-normatief.</em></p>
+<p>Bijvoorbeeld een introductie is niet normatief.</p>
+<div class="note" role="note" id="issue-container-generatedID"><div role="heading" class="note-title marker" id="h-note" aria-level="3"><span>Noot</span><span class="issue-label">: index</span></div><p class="">
+Dit hoofdstuk is toegevoegd met <code>class="informative"</code> in <code>config.js</code>.
+</p></div><section id="een-subparagraaf"><div class="header-wrapper"><h3 id="x1-1-een-subparagraaf"><bdi class="secno">1.1 </bdi>Een subparagraaf</h3><a class="self-link" href="#een-subparagraaf" aria-label="Permalink for Section 1.1"></a></div>
+<p>Hier staat een tabel. Als de juiste style gekozen is ziet deze er goed uit.</p>
+<table>
+<thead>
+<tr>
+<th>Sleutel</th>
+<th>Waarde</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>key</td>
+<td>Deze waarde bevat een lange tekst zodat te zien is of de kolombreedte dynamisch wordt bepaald</td>
+</tr>
+</tbody></table>
+</section></section>
+<section id="meer-inhoud"><div class="header-wrapper"><h2 id="x2-meer-inhoud"><bdi class="secno">2. </bdi>Meer inhoud</h2><a class="self-link" href="#meer-inhoud" aria-label="Permalink for Section 2."></a></div>
+<section id="definities"><div class="header-wrapper"><h3 id="x2-1-definities"><bdi class="secno">2.1 </bdi>Definities</h3><a class="self-link" href="#definities" aria-label="Permalink for Section 2.1"></a></div>
+<p><dfn id="dfn-definitie" tabindex="0" aria-haspopup="dialog">Definitie</dfn>: Een definitie is een beschrijving van een woord. Een ander woord voor <em>definitie</em> is betekenis of beschrijving.</p>
+</section><section id="afbeeldingen"><div class="header-wrapper"><h3 id="x2-2-afbeeldingen"><bdi class="secno">2.2 </bdi>Afbeeldingen</h3><a class="self-link" href="#afbeeldingen" aria-label="Permalink for Section 2.2"></a></div>
+<p>Afbeeldingen krijgen een nummer en vermelding in de figurenlijst <a href="#tof" data-matched-text="[[[#tof]]]" class="sec-ref"><bdi class="secno">5. </bdi>Lijst met figuren</a>.</p>
+<p>
+      </p><figure id="fig-onderschrift">
+        <img src="media/Bomos_levenscyclus.svg" alt="Tekstueel alternatief voor toegankelijkheid">
+        <figcaption><a class="self-link" href="#fig-onderschrift">Figuur <bdi class="figno">1</bdi></a> <span class="fig-title">Onderschrift</span></figcaption>
+      </figure>
+    <p></p>
+</section><section id="referenties"><div class="header-wrapper"><h3 id="x2-3-referenties"><bdi class="secno">2.3 </bdi>Referenties</h3><a class="self-link" href="#referenties" aria-label="Permalink for Section 2.3"></a></div>
+<p>Referenties kunnen op drie plaatsen staan:</p>
+<ul>
+<li>In SpecRef <a href="https://www.specref.org/">Specref</a></li>
+<li>In de organisatie configuraties [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>]. Deze zijn te vinden op <a href="https://github.com/Geonovum/tools.geostandaarden.nl/blob/main/tools.geostandaarden.nl/respec/config/geonovum-config.js">tools.geostandaarden.nl</a>.</li>
+<li>In het document, zoals [<cite><a class="bibref" data-link-type="biblio" href="#bib-mim12" title="MIM - Metamodel Informatie Modellering (Versie 1.2)">MIM12</a></cite>]. Deze zijn te vinden in <code>js/config.js</code>.</li>
+</ul>
+<p>Referentie uit organisatie lijst [<cite><a class="bibref" data-link-type="biblio" href="#bib-semver" title="Semantic Versioning 2.0.0">SemVer</a></cite>] of de locale lijst [<cite><a class="bibref" data-link-type="biblio" href="#bib-mim12" title="MIM - Metamodel Informatie Modellering (Versie 1.2)">MIM12</a></cite>]. Lijst staat in <code>organisation-config.js</code>. Alleen referenties die in de tekst voorkomen worden getoond.</p>
+<p>We gebruiken een <a href="#dfn-definitie" class="internalDFN" data-link-type="dfn" id="ref-for-dfn-definitie-1">definitie</a> om een woord te omschrijven.</p>
+</section><section id="optioneel"><div class="header-wrapper"><h3 id="x2-4-optioneel"><bdi class="secno">2.4 </bdi>Optioneel</h3><a class="self-link" href="#optioneel" aria-label="Permalink for Section 2.4"></a></div>
+<p>De onderstaande secties (<em>Conformiteit</em> e.d.) zijn optioneel, zie <code>index.html</code>:</p>
+<pre><code aria-busy="false" class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"abstract"</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"abstract.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"sotd"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span><span class="hljs-comment">&lt;!-- Wordt automatisch gevuld --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"informative"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch01.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">data-include-format</span>=<span class="hljs-string">"markdown"</span> <span class="hljs-attr">data-include</span>=<span class="hljs-string">"ch02.md"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Hieronder optionele secties. Worden automatisch gevuld --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'conformance'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">'tof'</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">section</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"index"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">section</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span>
+</code></pre>
+</section></section>
+<section id="mermaid-diagram"><div class="header-wrapper"><h2 id="x3-mermaid-diagram"><bdi class="secno">3. </bdi>Mermaid diagram</h2><a class="self-link" href="#mermaid-diagram" aria-label="Permalink for Section 3."></a></div>
+<figure id="Mermaidvoorbeeld"><pre><img style="max-width: 100%; aspect-ratio: 2/1;" src="data:image/svg+xml;base64,PHN2ZyBpZD0iZGlhZ3JhbS0xIiB3aWR0aD0iMTAwJSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBjbGFzcz0iZmxvd2NoYXJ0IiBzdHlsZT0ibWF4LXdpZHRoOiAyMDguMjM0Mzc1cHg7IiB2aWV3Qm94PSIwIDAgMjA4LjIzNDM3NSAyNTciIHJvbGU9ImdyYXBoaWNzLWRvY3VtZW50IGRvY3VtZW50IiBhcmlhLXJvbGVkZXNjcmlwdGlvbj0iZmxvd2NoYXJ0LXYyIj48c3R5bGU+I2RpYWdyYW0tMXtmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7ZmlsbDojMzMzO31Aa2V5ZnJhbWVzIGVkZ2UtYW5pbWF0aW9uLWZyYW1le2Zyb217c3Ryb2tlLWRhc2hvZmZzZXQ6MDt9fUBrZXlmcmFtZXMgZGFzaHt0b3tzdHJva2UtZGFzaG9mZnNldDowO319I2RpYWdyYW0tMSAuZWRnZS1hbmltYXRpb24tc2xvd3tzdHJva2UtZGFzaGFycmF5OjksNSFpbXBvcnRhbnQ7c3Ryb2tlLWRhc2hvZmZzZXQ6OTAwO2FuaW1hdGlvbjpkYXNoIDUwcyBsaW5lYXIgaW5maW5pdGU7c3Ryb2tlLWxpbmVjYXA6cm91bmQ7fSNkaWFncmFtLTEgLmVkZ2UtYW5pbWF0aW9uLWZhc3R7c3Ryb2tlLWRhc2hhcnJheTo5LDUhaW1wb3J0YW50O3N0cm9rZS1kYXNob2Zmc2V0OjkwMDthbmltYXRpb246ZGFzaCAyMHMgbGluZWFyIGluZmluaXRlO3N0cm9rZS1saW5lY2FwOnJvdW5kO30jZGlhZ3JhbS0xIC5lcnJvci1pY29ue2ZpbGw6IzU1MjIyMjt9I2RpYWdyYW0tMSAuZXJyb3ItdGV4dHtmaWxsOiM1NTIyMjI7c3Ryb2tlOiM1NTIyMjI7fSNkaWFncmFtLTEgLmVkZ2UtdGhpY2tuZXNzLW5vcm1hbHtzdHJva2Utd2lkdGg6MXB4O30jZGlhZ3JhbS0xIC5lZGdlLXRoaWNrbmVzcy10aGlja3tzdHJva2Utd2lkdGg6My41cHg7fSNkaWFncmFtLTEgLmVkZ2UtcGF0dGVybi1zb2xpZHtzdHJva2UtZGFzaGFycmF5OjA7fSNkaWFncmFtLTEgLmVkZ2UtdGhpY2tuZXNzLWludmlzaWJsZXtzdHJva2Utd2lkdGg6MDtmaWxsOm5vbmU7fSNkaWFncmFtLTEgLmVkZ2UtcGF0dGVybi1kYXNoZWR7c3Ryb2tlLWRhc2hhcnJheTozO30jZGlhZ3JhbS0xIC5lZGdlLXBhdHRlcm4tZG90dGVke3N0cm9rZS1kYXNoYXJyYXk6Mjt9I2RpYWdyYW0tMSAubWFya2Vye2ZpbGw6IzMzMzMzMztzdHJva2U6IzMzMzMzMzt9I2RpYWdyYW0tMSAubWFya2VyLmNyb3Nze3N0cm9rZTojMzMzMzMzO30jZGlhZ3JhbS0xIHN2Z3tmb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7Zm9udC1zaXplOjE2cHg7fSNkaWFncmFtLTEgcHttYXJnaW46MDt9I2RpYWdyYW0tMSAubGFiZWx7Zm9udC1mYW1pbHk6InRyZWJ1Y2hldCBtcyIsdmVyZGFuYSxhcmlhbCxzYW5zLXNlcmlmO2NvbG9yOiMzMzM7fSNkaWFncmFtLTEgLmNsdXN0ZXItbGFiZWwgdGV4dHtmaWxsOiMzMzM7fSNkaWFncmFtLTEgLmNsdXN0ZXItbGFiZWwgc3Bhbntjb2xvcjojMzMzO30jZGlhZ3JhbS0xIC5jbHVzdGVyLWxhYmVsIHNwYW4gcHtiYWNrZ3JvdW5kLWNvbG9yOnRyYW5zcGFyZW50O30jZGlhZ3JhbS0xIC5sYWJlbCB0ZXh0LCNkaWFncmFtLTEgc3BhbntmaWxsOiMzMzM7Y29sb3I6IzMzMzt9I2RpYWdyYW0tMSAubm9kZSByZWN0LCNkaWFncmFtLTEgLm5vZGUgY2lyY2xlLCNkaWFncmFtLTEgLm5vZGUgZWxsaXBzZSwjZGlhZ3JhbS0xIC5ub2RlIHBvbHlnb24sI2RpYWdyYW0tMSAubm9kZSBwYXRoe2ZpbGw6I0VDRUNGRjtzdHJva2U6IzkzNzBEQjtzdHJva2Utd2lkdGg6MXB4O30jZGlhZ3JhbS0xIC5yb3VnaC1ub2RlIC5sYWJlbCB0ZXh0LCNkaWFncmFtLTEgLm5vZGUgLmxhYmVsIHRleHQsI2RpYWdyYW0tMSAuaW1hZ2Utc2hhcGUgLmxhYmVsLCNkaWFncmFtLTEgLmljb24tc2hhcGUgLmxhYmVse3RleHQtYW5jaG9yOm1pZGRsZTt9I2RpYWdyYW0tMSAubm9kZSAua2F0ZXggcGF0aHtmaWxsOiMwMDA7c3Ryb2tlOiMwMDA7c3Ryb2tlLXdpZHRoOjFweDt9I2RpYWdyYW0tMSAucm91Z2gtbm9kZSAubGFiZWwsI2RpYWdyYW0tMSAubm9kZSAubGFiZWwsI2RpYWdyYW0tMSAuaW1hZ2Utc2hhcGUgLmxhYmVsLCNkaWFncmFtLTEgLmljb24tc2hhcGUgLmxhYmVse3RleHQtYWxpZ246Y2VudGVyO30jZGlhZ3JhbS0xIC5ub2RlLmNsaWNrYWJsZXtjdXJzb3I6cG9pbnRlcjt9I2RpYWdyYW0tMSAucm9vdCAuYW5jaG9yIHBhdGh7ZmlsbDojMzMzMzMzIWltcG9ydGFudDtzdHJva2Utd2lkdGg6MDtzdHJva2U6IzMzMzMzMzt9I2RpYWdyYW0tMSAuYXJyb3doZWFkUGF0aHtmaWxsOiMzMzMzMzM7fSNkaWFncmFtLTEgLmVkZ2VQYXRoIC5wYXRoe3N0cm9rZTojMzMzMzMzO3N0cm9rZS13aWR0aDoxcHg7fSNkaWFncmFtLTEgLmZsb3djaGFydC1saW5re3N0cm9rZTojMzMzMzMzO2ZpbGw6bm9uZTt9I2RpYWdyYW0tMSAuZWRnZUxhYmVse2JhY2tncm91bmQtY29sb3I6cmdiYSgyMzIsMjMyLDIzMiwgMC44KTt0ZXh0LWFsaWduOmNlbnRlcjt9I2RpYWdyYW0tMSAuZWRnZUxhYmVsIHB7YmFja2dyb3VuZC1jb2xvcjpyZ2JhKDIzMiwyMzIsMjMyLCAwLjgpO30jZGlhZ3JhbS0xIC5lZGdlTGFiZWwgcmVjdHtvcGFjaXR5OjAuNTtiYWNrZ3JvdW5kLWNvbG9yOnJnYmEoMjMyLDIzMiwyMzIsIDAuOCk7ZmlsbDpyZ2JhKDIzMiwyMzIsMjMyLCAwLjgpO30jZGlhZ3JhbS0xIC5sYWJlbEJrZ3tiYWNrZ3JvdW5kLWNvbG9yOnJnYmEoMjMyLCAyMzIsIDIzMiwgMC41KTt9I2RpYWdyYW0tMSAuY2x1c3RlciByZWN0e2ZpbGw6I2ZmZmZkZTtzdHJva2U6I2FhYWEzMztzdHJva2Utd2lkdGg6MXB4O30jZGlhZ3JhbS0xIC5jbHVzdGVyIHRleHR7ZmlsbDojMzMzO30jZGlhZ3JhbS0xIC5jbHVzdGVyIHNwYW57Y29sb3I6IzMzMzt9I2RpYWdyYW0tMSBkaXYubWVybWFpZFRvb2x0aXB7cG9zaXRpb246YWJzb2x1dGU7dGV4dC1hbGlnbjpjZW50ZXI7bWF4LXdpZHRoOjIwMHB4O3BhZGRpbmc6MnB4O2ZvbnQtZmFtaWx5OiJ0cmVidWNoZXQgbXMiLHZlcmRhbmEsYXJpYWwsc2Fucy1zZXJpZjtmb250LXNpemU6MTJweDtiYWNrZ3JvdW5kOmhzbCg4MCwgMTAwJSwgOTYuMjc0NTA5ODAzOSUpO2JvcmRlcjoxcHggc29saWQgI2FhYWEzMztib3JkZXItcmFkaXVzOjJweDtwb2ludGVyLWV2ZW50czpub25lO3otaW5kZXg6MTAwO30jZGlhZ3JhbS0xIC5mbG93Y2hhcnRUaXRsZVRleHR7dGV4dC1hbmNob3I6bWlkZGxlO2ZvbnQtc2l6ZToxOHB4O2ZpbGw6IzMzMzt9I2RpYWdyYW0tMSByZWN0LnRleHR7ZmlsbDpub25lO3N0cm9rZS13aWR0aDowO30jZGlhZ3JhbS0xIC5pY29uLXNoYXBlLCNkaWFncmFtLTEgLmltYWdlLXNoYXBle2JhY2tncm91bmQtY29sb3I6cmdiYSgyMzIsMjMyLDIzMiwgMC44KTt0ZXh0LWFsaWduOmNlbnRlcjt9I2RpYWdyYW0tMSAuaWNvbi1zaGFwZSBwLCNkaWFncmFtLTEgLmltYWdlLXNoYXBlIHB7YmFja2dyb3VuZC1jb2xvcjpyZ2JhKDIzMiwyMzIsMjMyLCAwLjgpO3BhZGRpbmc6MnB4O30jZGlhZ3JhbS0xIC5pY29uLXNoYXBlIC5sYWJlbCByZWN0LCNkaWFncmFtLTEgLmltYWdlLXNoYXBlIC5sYWJlbCByZWN0e29wYWNpdHk6MC41O2JhY2tncm91bmQtY29sb3I6cmdiYSgyMzIsMjMyLDIzMiwgMC44KTtmaWxsOnJnYmEoMjMyLDIzMiwyMzIsIDAuOCk7fSNkaWFncmFtLTEgLmxhYmVsLWljb257ZGlzcGxheTppbmxpbmUtYmxvY2s7aGVpZ2h0OjFlbTtvdmVyZmxvdzp2aXNpYmxlO3ZlcnRpY2FsLWFsaWduOi0wLjEyNWVtO30jZGlhZ3JhbS0xIC5ub2RlIC5sYWJlbC1pY29uIHBhdGh7ZmlsbDpjdXJyZW50Q29sb3I7c3Ryb2tlOnJldmVydDtzdHJva2Utd2lkdGg6cmV2ZXJ0O30jZGlhZ3JhbS0xIC5ub2RlIC5uZW8tbm9kZXtzdHJva2U6IzkzNzBEQjt9I2RpYWdyYW0tMSBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHJlY3QsI2RpYWdyYW0tMSBbZGF0YS1sb29rPSJuZW8iXS5jbHVzdGVyIHJlY3QsI2RpYWdyYW0tMSBbZGF0YS1sb29rPSJuZW8iXS5ub2RlIHBvbHlnb257c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jZGlhZ3JhbS0xIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgcGF0aHtzdHJva2U6IzkzNzBEQjtzdHJva2Utd2lkdGg6MXB4O30jZGlhZ3JhbS0xIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm91dGVyLXBhdGh7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jZGlhZ3JhbS0xIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgLm5lby1saW5lIHBhdGh7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOm5vbmU7fSNkaWFncmFtLTEgW2RhdGEtbG9vaz0ibmVvIl0ubm9kZSBjaXJjbGV7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jZGlhZ3JhbS0xIFtkYXRhLWxvb2s9Im5lbyJdLm5vZGUgY2lyY2xlIC5zdGF0ZS1zdGFydHtmaWxsOiMwMDAwMDA7fSNkaWFncmFtLTEgW2RhdGEtbG9vaz0ibmVvIl0uaWNvbi1zaGFwZSAuaWNvbntmaWxsOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jZGlhZ3JhbS0xIFtkYXRhLWxvb2s9Im5lbyJdLmljb24tc2hhcGUgLmljb24tbmVvIHBhdGh7c3Ryb2tlOiM5MzcwREI7ZmlsdGVyOmRyb3Atc2hhZG93KDFweCAycHggMnB4IHJnYmEoMTg1LCAxODUsIDE4NSwgMSkpO30jZGlhZ3JhbS0xIDpyb290ey0tbWVybWFpZC1mb250LWZhbWlseToidHJlYnVjaGV0IG1zIix2ZXJkYW5hLGFyaWFsLHNhbnMtc2VyaWY7fTwvc3R5bGU+PGc+PG1hcmtlciBpZD0iZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1wb2ludEVuZCIgY2xhc3M9Im1hcmtlciBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWD0iNSIgcmVmWT0iNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI4IiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMCAwIEwgMTAgNSBMIDAgMTAgeiIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMTsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiPjwvcGF0aD48L21hcmtlcj48bWFya2VyIGlkPSJkaWFncmFtLTFfZmxvd2NoYXJ0LXYyLXBvaW50U3RhcnQiIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjQuNSIgcmVmWT0iNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iOCIgbWFya2VySGVpZ2h0PSI4IiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMCA1IEwgMTAgMTAgTCAxMCAwIHoiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDE7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ij48L3BhdGg+PC9tYXJrZXI+PG1hcmtlciBpZD0iZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1wb2ludEVuZC1tYXJnaW4iIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTEuNSAxNCIgcmVmWD0iMTEuNSIgcmVmWT0iNyIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTAuNSIgbWFya2VySGVpZ2h0PSIxNCIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDAgMCBMIDExLjUgNyBMIDAgMTQgeiIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMDsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiPjwvcGF0aD48L21hcmtlcj48bWFya2VyIGlkPSJkaWFncmFtLTFfZmxvd2NoYXJ0LXYyLXBvaW50U3RhcnQtbWFyZ2luIiBjbGFzcz0ibWFya2VyIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDExLjUgMTQiIHJlZlg9IjEiIHJlZlk9IjciIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjExLjUiIG1hcmtlckhlaWdodD0iMTQiIG9yaWVudD0iYXV0byI+PHBvbHlnb24gcG9pbnRzPSIwLDcgMTEuNSwxNCAxMS41LDAiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDA7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ij48L3BvbHlnb24+PC9tYXJrZXI+PG1hcmtlciBpZD0iZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1jaXJjbGVFbmQiIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9IjExIiByZWZZPSI1IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxMSIgbWFya2VySGVpZ2h0PSIxMSIgb3JpZW50PSJhdXRvIj48Y2lyY2xlIGN4PSI1IiBjeT0iNSIgcj0iNSIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMTsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiPjwvY2lyY2xlPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImRpYWdyYW0tMV9mbG93Y2hhcnQtdjItY2lyY2xlU3RhcnQiIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9Ii0xIiByZWZZPSI1IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxMSIgbWFya2VySGVpZ2h0PSIxMSIgb3JpZW50PSJhdXRvIj48Y2lyY2xlIGN4PSI1IiBjeT0iNSIgcj0iNSIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMTsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiPjwvY2lyY2xlPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImRpYWdyYW0tMV9mbG93Y2hhcnQtdjItY2lyY2xlRW5kLW1hcmdpbiIgY2xhc3M9Im1hcmtlciBmbG93Y2hhcnQtdjIiIHZpZXdCb3g9IjAgMCAxMCAxMCIgcmVmWT0iNSIgcmVmWD0iMTIuMjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjE0IiBtYXJrZXJIZWlnaHQ9IjE0IiBvcmllbnQ9ImF1dG8iPjxjaXJjbGUgY3g9IjUiIGN5PSI1IiByPSI1IiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAwOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyI+PC9jaXJjbGU+PC9tYXJrZXI+PG1hcmtlciBpZD0iZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1jaXJjbGVTdGFydC1tYXJnaW4iIGNsYXNzPSJtYXJrZXIgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTAgMTAiIHJlZlg9Ii0yIiByZWZZPSI1IiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxNCIgbWFya2VySGVpZ2h0PSIxNCIgb3JpZW50PSJhdXRvIj48Y2lyY2xlIGN4PSI1IiBjeT0iNSIgcj0iNSIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMDsgc3Ryb2tlLWRhc2hhcnJheTogMSwgMDsiPjwvY2lyY2xlPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImRpYWdyYW0tMV9mbG93Y2hhcnQtdjItY3Jvc3NFbmQiIGNsYXNzPSJtYXJrZXIgY3Jvc3MgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTEgMTEiIHJlZlg9IjEyIiByZWZZPSI1LjIiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjExIiBtYXJrZXJIZWlnaHQ9IjExIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMSwxIGwgOSw5IE0gMTAsMSBsIC05LDkiIGNsYXNzPSJhcnJvd01hcmtlclBhdGgiIHN0eWxlPSJzdHJva2Utd2lkdGg6IDI7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ij48L3BhdGg+PC9tYXJrZXI+PG1hcmtlciBpZD0iZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1jcm9zc1N0YXJ0IiBjbGFzcz0ibWFya2VyIGNyb3NzIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDExIDExIiByZWZYPSItMSIgcmVmWT0iNS4yIiBtYXJrZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIG1hcmtlcldpZHRoPSIxMSIgbWFya2VySGVpZ2h0PSIxMSIgb3JpZW50PSJhdXRvIj48cGF0aCBkPSJNIDEsMSBsIDksOSBNIDEwLDEgbCAtOSw5IiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAyOyBzdHJva2UtZGFzaGFycmF5OiAxLCAwOyI+PC9wYXRoPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImRpYWdyYW0tMV9mbG93Y2hhcnQtdjItY3Jvc3NFbmQtbWFyZ2luIiBjbGFzcz0ibWFya2VyIGNyb3NzIGZsb3djaGFydC12MiIgdmlld0JveD0iMCAwIDE1IDE1IiByZWZYPSIxNy43IiByZWZZPSI3LjUiIG1hcmtlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgbWFya2VyV2lkdGg9IjEyIiBtYXJrZXJIZWlnaHQ9IjEyIiBvcmllbnQ9ImF1dG8iPjxwYXRoIGQ9Ik0gMSwxIEwgMTQsMTQgTSAxLDE0IEwgMTQsMSIgY2xhc3M9ImFycm93TWFya2VyUGF0aCIgc3R5bGU9InN0cm9rZS13aWR0aDogMi41OyI+PC9wYXRoPjwvbWFya2VyPjxtYXJrZXIgaWQ9ImRpYWdyYW0tMV9mbG93Y2hhcnQtdjItY3Jvc3NTdGFydC1tYXJnaW4iIGNsYXNzPSJtYXJrZXIgY3Jvc3MgZmxvd2NoYXJ0LXYyIiB2aWV3Qm94PSIwIDAgMTUgMTUiIHJlZlg9Ii0zLjUiIHJlZlk9IjcuNSIgbWFya2VyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBtYXJrZXJXaWR0aD0iMTIiIG1hcmtlckhlaWdodD0iMTIiIG9yaWVudD0iYXV0byI+PHBhdGggZD0iTSAxLDEgTCAxNCwxNCBNIDEsMTQgTCAxNCwxIiBjbGFzcz0iYXJyb3dNYXJrZXJQYXRoIiBzdHlsZT0ic3Ryb2tlLXdpZHRoOiAyLjU7IHN0cm9rZS1kYXNoYXJyYXk6IDEsIDA7Ij48L3BhdGg+PC9tYXJrZXI+PGcgY2xhc3M9InJvb3QiPjxnIGNsYXNzPSJjbHVzdGVycyI+PC9nPjxnIGNsYXNzPSJlZGdlUGF0aHMiPjxwYXRoIGQ9Ik03NC41NTIsNTVMNjkuMzQ5LDU5LjE2N0M2NC4xNDYsNjMuMzMzLDUzLjc0MSw3MS42NjcsNDguNTM5LDc5LjMzM0M0My4zMzYsODcsNDMuMzM2LDk0LDQzLjMzNiw5Ny41TDQzLjMzNiwxMDEiIGlkPSJkaWFncmFtLTEtTF9BX0JfMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCBmbG93Y2hhcnQtbGluayIgc3R5bGU9IjsiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iTF9BX0JfMCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TnpRdU5UVXhOekEzTkRjME1qSTJPQ3dpZVNJNk5UVjlMSHNpZUNJNk5ETXVNek0xT1RNM05Td2llU0k2T0RCOUxIc2llQ0k2TkRNdU16TTFPVE0zTlN3aWVTSTZNVEExZlYwPSIgZGF0YS1sb29rPSJjbGFzc2ljIiBtYXJrZXItZW5kPSJ1cmwoI2RpYWdyYW0tMV9mbG93Y2hhcnQtdjItcG9pbnRFbmQpIj48L3BhdGg+PHBhdGggZD0iTTEzMy4yMzcsNTVMMTM4LjQ0LDU5LjE2N0MxNDMuNjQzLDYzLjMzMywxNTQuMDQ4LDcxLjY2NywxNTkuMjUsNzkuMzMzQzE2NC40NTMsODcsMTY0LjQ1Myw5NCwxNjQuNDUzLDk3LjVMMTY0LjQ1MywxMDEiIGlkPSJkaWFncmFtLTEtTF9BX0NfMCIgY2xhc3M9ImVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCBmbG93Y2hhcnQtbGluayIgc3R5bGU9IjsiIGRhdGEtZWRnZT0idHJ1ZSIgZGF0YS1ldD0iZWRnZSIgZGF0YS1pZD0iTF9BX0NfMCIgZGF0YS1wb2ludHM9Ilczc2llQ0k2TVRNekxqSXpOek0xTlRBeU5UYzNNekU0TENKNUlqbzFOWDBzZXlKNElqb3hOalF1TkRVek1USTFMQ0o1SWpvNE1IMHNleUo0SWpveE5qUXVORFV6TVRJMUxDSjVJam94TURWOVhRPT0iIGRhdGEtbG9vaz0iY2xhc3NpYyIgbWFya2VyLWVuZD0idXJsKCNkaWFncmFtLTFfZmxvd2NoYXJ0LXYyLXBvaW50RW5kKSI+PC9wYXRoPjxwYXRoIGQ9Ik00My4zMzYsMTUyTDQzLjMzNiwxNTYuMTY3QzQzLjMzNiwxNjAuMzMzLDQzLjMzNiwxNjguNjY3LDQ4LjAxOCwxNzYuNTgzQzUyLjcsMTg0LjUsNjIuMDY1LDE5Miw2Ni43NDcsMTk1Ljc1TDcxLjQzLDE5OS41IiBpZD0iZGlhZ3JhbS0xLUxfQl9EXzAiIGNsYXNzPSJlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIGVkZ2UtdGhpY2tuZXNzLW5vcm1hbCBlZGdlLXBhdHRlcm4tc29saWQgZmxvd2NoYXJ0LWxpbmsiIHN0eWxlPSI7IiBkYXRhLWVkZ2U9InRydWUiIGRhdGEtZXQ9ImVkZ2UiIGRhdGEtaWQ9IkxfQl9EXzAiIGRhdGEtcG9pbnRzPSJXM3NpZUNJNk5ETXVNek0xT1RNM05Td2llU0k2TVRVeWZTeDdJbmdpT2pRekxqTXpOVGt6TnpVc0lua2lPakUzTjMwc2V5SjRJam8zTkM0MU5URTNNRGMwTnpReU1qWTRMQ0o1SWpveU1ESjlYUT09IiBkYXRhLWxvb2s9ImNsYXNzaWMiIG1hcmtlci1lbmQ9InVybCgjZGlhZ3JhbS0xX2Zsb3djaGFydC12Mi1wb2ludEVuZCkiPjwvcGF0aD48cGF0aCBkPSJNMTY0LjQ1MywxNTJMMTY0LjQ1MywxNTYuMTY3QzE2NC40NTMsMTYwLjMzMywxNjQuNDUzLDE2OC42NjcsMTU5Ljc3MSwxNzYuNTgzQzE1NS4wODksMTg0LjUsMTQ1LjcyNCwxOTIsMTQxLjA0MiwxOTUuNzVMMTM2LjM1OSwxOTkuNSIgaWQ9ImRpYWdyYW0tMS1MX0NfRF8wIiBjbGFzcz0iZWRnZS10aGlja25lc3Mtbm9ybWFsIGVkZ2UtcGF0dGVybi1zb2xpZCBlZGdlLXRoaWNrbmVzcy1ub3JtYWwgZWRnZS1wYXR0ZXJuLXNvbGlkIGZsb3djaGFydC1saW5rIiBzdHlsZT0iOyIgZGF0YS1lZGdlPSJ0cnVlIiBkYXRhLWV0PSJlZGdlIiBkYXRhLWlkPSJMX0NfRF8wIiBkYXRhLXBvaW50cz0iVzNzaWVDSTZNVFkwTGpRMU16RXlOU3dpZVNJNk1UVXlmU3g3SW5naU9qRTJOQzQwTlRNeE1qVXNJbmtpT2pFM04zMHNleUo0SWpveE16TXVNak0zTXpVMU1ESTFOemN6TVRnc0lua2lPakl3TW4xZCIgZGF0YS1sb29rPSJjbGFzc2ljIiBtYXJrZXItZW5kPSJ1cmwoI2RpYWdyYW0tMV9mbG93Y2hhcnQtdjItcG9pbnRFbmQpIj48L3BhdGg+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWxzIj48ZyBjbGFzcz0iZWRnZUxhYmVsIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9IkxfQV9CXzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDApIj48dGV4dCB5PSItMTAuMSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PHRzcGFuIGNsYXNzPSJ0ZXh0LW91dGVyLXRzcGFuIHJvdyIgeD0iMCIgeT0iLTAuMWVtIiBkeT0iMS4xZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiPjwvdHNwYW4+PC90ZXh0PjwvZz48L2c+PGc+PHJlY3QgY2xhc3M9ImJhY2tncm91bmQiIHN0eWxlPSJzdHJva2U6IG5vbmUiPjwvcmVjdD48L2c+PGcgY2xhc3M9ImVkZ2VMYWJlbCI+PGcgY2xhc3M9ImxhYmVsIiBkYXRhLWlkPSJMX0FfQ18wIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAwKSI+PHRleHQgeT0iLTEwLjEiIHRleHQtYW5jaG9yPSJtaWRkbGUiPjx0c3BhbiBjbGFzcz0idGV4dC1vdXRlci10c3BhbiByb3ciIHg9IjAiIHk9Ii0wLjFlbSIgZHk9IjEuMWVtIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj48L3RzcGFuPjwvdGV4dD48L2c+PC9nPjxnPjxyZWN0IGNsYXNzPSJiYWNrZ3JvdW5kIiBzdHlsZT0ic3Ryb2tlOiBub25lIj48L3JlY3Q+PC9nPjxnIGNsYXNzPSJlZGdlTGFiZWwiPjxnIGNsYXNzPSJsYWJlbCIgZGF0YS1pZD0iTF9CX0RfMCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCwgMCkiPjx0ZXh0IHk9Ii0xMC4xIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj48dHNwYW4gY2xhc3M9InRleHQtb3V0ZXItdHNwYW4gcm93IiB4PSIwIiB5PSItMC4xZW0iIGR5PSIxLjFlbSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PC90c3Bhbj48L3RleHQ+PC9nPjwvZz48Zz48cmVjdCBjbGFzcz0iYmFja2dyb3VuZCIgc3R5bGU9InN0cm9rZTogbm9uZSI+PC9yZWN0PjwvZz48ZyBjbGFzcz0iZWRnZUxhYmVsIj48ZyBjbGFzcz0ibGFiZWwiIGRhdGEtaWQ9IkxfQ19EXzAiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIDApIj48dGV4dCB5PSItMTAuMSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+PHRzcGFuIGNsYXNzPSJ0ZXh0LW91dGVyLXRzcGFuIHJvdyIgeD0iMCIgeT0iLTAuMWVtIiBkeT0iMS4xZW0iIHRleHQtYW5jaG9yPSJtaWRkbGUiPjwvdHNwYW4+PC90ZXh0PjwvZz48L2c+PGc+PHJlY3QgY2xhc3M9ImJhY2tncm91bmQiIHN0eWxlPSJzdHJva2U6IG5vbmUiPjwvcmVjdD48L2c+PC9nPjxnIGNsYXNzPSJub2RlcyI+PGcgY2xhc3M9Im5vZGUgZGVmYXVsdCIgaWQ9ImRpYWdyYW0tMS1mbG93Y2hhcnQtQS0wIiBkYXRhLWxvb2s9ImNsYXNzaWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEwMy44OTQ1MzEyNSwgMzEuNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHg9Ii0zNS41IiB5PSItMjMuNSIgd2lkdGg9IjcxIiBoZWlnaHQ9IjQ3Ij48L3JlY3Q+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAtOC41KSI+PHJlY3Q+PC9yZWN0PjxnPjxyZWN0IGNsYXNzPSJiYWNrZ3JvdW5kIiBzdHlsZT0ic3Ryb2tlOiBub25lIj48L3JlY3Q+PHRleHQgeT0iLTEwLjEiIHN0eWxlPSIiPjx0c3BhbiBjbGFzcz0idGV4dC1vdXRlci10c3BhbiByb3ciIHg9IjAiIHk9Ii0wLjFlbSIgZHk9IjEuMWVtIj48dHNwYW4gZm9udC1zdHlsZT0ibm9ybWFsIiBjbGFzcz0idGV4dC1pbm5lci10c3BhbiIgZm9udC13ZWlnaHQ9Im5vcm1hbCI+QTwvdHNwYW4+PC90c3Bhbj48L3RleHQ+PC9nPjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgZGVmYXVsdCIgaWQ9ImRpYWdyYW0tMS1mbG93Y2hhcnQtQi0xIiBkYXRhLWxvb2s9ImNsYXNzaWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQzLjMzNTkzNzUsIDEyOC41KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgeD0iLTM1LjMzNTkzNzUiIHk9Ii0yMy41IiB3aWR0aD0iNzAuNjcxODc1IiBoZWlnaHQ9IjQ3Ij48L3JlY3Q+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAtOC41KSI+PHJlY3Q+PC9yZWN0PjxnPjxyZWN0IGNsYXNzPSJiYWNrZ3JvdW5kIiBzdHlsZT0ic3Ryb2tlOiBub25lIj48L3JlY3Q+PHRleHQgeT0iLTEwLjEiIHN0eWxlPSIiPjx0c3BhbiBjbGFzcz0idGV4dC1vdXRlci10c3BhbiByb3ciIHg9IjAiIHk9Ii0wLjFlbSIgZHk9IjEuMWVtIj48dHNwYW4gZm9udC1zdHlsZT0ibm9ybWFsIiBjbGFzcz0idGV4dC1pbm5lci10c3BhbiIgZm9udC13ZWlnaHQ9Im5vcm1hbCI+QjwvdHNwYW4+PC90c3Bhbj48L3RleHQ+PC9nPjwvZz48L2c+PGcgY2xhc3M9Im5vZGUgZGVmYXVsdCIgaWQ9ImRpYWdyYW0tMS1mbG93Y2hhcnQtQy0zIiBkYXRhLWxvb2s9ImNsYXNzaWMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2NC40NTMxMjUsIDEyOC41KSI+PHJlY3QgY2xhc3M9ImJhc2ljIGxhYmVsLWNvbnRhaW5lciIgc3R5bGU9IiIgeD0iLTM1Ljc4MTI1IiB5PSItMjMuNSIgd2lkdGg9IjcxLjU2MjUiIGhlaWdodD0iNDciPjwvcmVjdD48ZyBjbGFzcz0ibGFiZWwiIHN0eWxlPSIiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAsIC04LjUpIj48cmVjdD48L3JlY3Q+PGc+PHJlY3QgY2xhc3M9ImJhY2tncm91bmQiIHN0eWxlPSJzdHJva2U6IG5vbmUiPjwvcmVjdD48dGV4dCB5PSItMTAuMSIgc3R5bGU9IiI+PHRzcGFuIGNsYXNzPSJ0ZXh0LW91dGVyLXRzcGFuIHJvdyIgeD0iMCIgeT0iLTAuMWVtIiBkeT0iMS4xZW0iPjx0c3BhbiBmb250LXN0eWxlPSJub3JtYWwiIGNsYXNzPSJ0ZXh0LWlubmVyLXRzcGFuIiBmb250LXdlaWdodD0ibm9ybWFsIj5DPC90c3Bhbj48L3RzcGFuPjwvdGV4dD48L2c+PC9nPjwvZz48ZyBjbGFzcz0ibm9kZSBkZWZhdWx0IiBpZD0iZGlhZ3JhbS0xLWZsb3djaGFydC1ELTUiIGRhdGEtbG9vaz0iY2xhc3NpYyIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTAzLjg5NDUzMTI1LCAyMjUuNSkiPjxyZWN0IGNsYXNzPSJiYXNpYyBsYWJlbC1jb250YWluZXIiIHN0eWxlPSIiIHg9Ii0zNS43ODEyNSIgeT0iLTIzLjUiIHdpZHRoPSI3MS41NjI1IiBoZWlnaHQ9IjQ3Ij48L3JlY3Q+PGcgY2xhc3M9ImxhYmVsIiBzdHlsZT0iIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgwLCAtOC41KSI+PHJlY3Q+PC9yZWN0PjxnPjxyZWN0IGNsYXNzPSJiYWNrZ3JvdW5kIiBzdHlsZT0ic3Ryb2tlOiBub25lIj48L3JlY3Q+PHRleHQgeT0iLTEwLjEiIHN0eWxlPSIiPjx0c3BhbiBjbGFzcz0idGV4dC1vdXRlci10c3BhbiByb3ciIHg9IjAiIHk9Ii0wLjFlbSIgZHk9IjEuMWVtIj48dHNwYW4gZm9udC1zdHlsZT0ibm9ybWFsIiBjbGFzcz0idGV4dC1pbm5lci10c3BhbiIgZm9udC13ZWlnaHQ9Im5vcm1hbCI+RDwvdHNwYW4+PC90c3Bhbj48L3RleHQ+PC9nPjwvZz48L2c+PC9nPjwvZz48L2c+PGRlZnM+PGZpbHRlciBpZD0iZGlhZ3JhbS0xLWRyb3Atc2hhZG93IiBoZWlnaHQ9IjEzMCUiIHdpZHRoPSIxMzAlIj48ZmVEcm9wU2hhZG93IGR4PSI0IiBkeT0iNCIgc3RkRGV2aWF0aW9uPSIwIiBmbG9vZC1vcGFjaXR5PSIwLjA2IiBmbG9vZC1jb2xvcj0iIzAwMDAwMCI+PC9mZURyb3BTaGFkb3c+PC9maWx0ZXI+PC9kZWZzPjxkZWZzPjxmaWx0ZXIgaWQ9ImRpYWdyYW0tMS1kcm9wLXNoYWRvdy1zbWFsbCIgaGVpZ2h0PSIxNTAlIiB3aWR0aD0iMTUwJSI+PGZlRHJvcFNoYWRvdyBkeD0iMiIgZHk9IjIiIHN0ZERldmlhdGlvbj0iMCIgZmxvb2Qtb3BhY2l0eT0iMC4wNiIgZmxvb2QtY29sb3I9IiMwMDAwMDAiPjwvZmVEcm9wU2hhZG93PjwvZmlsdGVyPjwvZGVmcz48L3N2Zz4="></pre>
+<figcaption><a class="self-link" href="#Mermaidvoorbeeld">Figuur <bdi class="figno">2</bdi></a> <span class="fig-title">Mermaid voorbeeld</span></figcaption>
+</figure></section>
+
+ 
+
+
+
+
+
+
+
+<section id="conformance"><div class="header-wrapper"><h2 id="x4-conformiteit"><bdi class="secno">4. </bdi>Conformiteit</h2><a class="self-link" href="#conformance" aria-label="Permalink for Section 4."></a></div><p>Naast onderdelen die als niet-normatief gemarkeerd zijn, zijn ook alle diagrammen, voorbeelden, en noten in dit document niet-normatief. Verder is alles in dit document normatief.</p></section>
+<section id="tof"><div class="header-wrapper"><h2 id="x5-lijst-met-figuren"><bdi class="secno">5. </bdi>Lijst met figuren</h2><a class="self-link" href="#tof" aria-label="Permalink for Section 5."></a></div><ul class="tof">
+        <li class="tofline">
+    <a class="tocxref" href="#fig-onderschrift"><span class="self-link">Figuur <bdi class="figno">1</bdi></span> <span class="fig-title">Onderschrift</span></a>
+  </li><li class="tofline">
+    <a class="tocxref" href="#Mermaidvoorbeeld"><span class="self-link">Figuur <bdi class="figno">2</bdi></span> <span class="fig-title">Mermaid voorbeeld</span></a>
+  </li>
+      </ul></section>
+<section id="index" class="appendix"><div class="header-wrapper"><h2 id="a-index"><bdi class="secno">A. </bdi>Index</h2><a class="self-link" href="#index" aria-label="Permalink for Appendix A."></a></div><section id="index-defined-here">
+    <div class="header-wrapper"><h3 id="a-1-termen-gedefinieerd-door-deze-specificatie"><bdi class="secno">A.1 </bdi>Termen gedefinieerd door deze specificatie</h3><a class="self-link" href="#index-defined-here" aria-label="Permalink for Appendix A.1"></a></div>
+    <ul class="index">
+    <li>
+      <a class="index-term" href="#dfn-definitie">Definitie</a> 
+    <span class="print-only">§2.1</span></li>
+  </ul>
+  </section><section id="index-defined-elsewhere">
+    <div class="header-wrapper"><h3 id="a-2-termen-gedefinieerd-door-verwijzing"><bdi class="secno">A.2 </bdi>Termen gedefinieerd door verwijzing</h3><a class="self-link" href="#index-defined-elsewhere" aria-label="Permalink for Appendix A.2"></a></div>
+    <ul class="index">
+    
+  </ul>
+  </section></section>
+
+
+
+<section id="references" class="appendix"><div class="header-wrapper"><h2 id="b-referenties"><bdi class="secno">B. </bdi>Referenties</h2><a class="self-link" href="#references" aria-label="Permalink for Appendix B."></a></div><section id="normatieve-referenties">
+    <div class="header-wrapper"><h3 id="b-1-normatieve-referenties"><bdi class="secno">B.1 </bdi>Normatieve referenties</h3><a class="self-link" href="#normatieve-referenties" aria-label="Permalink for Appendix B.1"></a></div>
+    <dl class="bibliography"><dt id="bib-mim12">[MIM12]</dt><dd>
+      <a href="https://docs.geostandaarden.nl/mim/def-st-mim-20240613/"><cite>MIM - Metamodel Informatie Modellering (Versie 1.2)</cite></a>.  Geonovum. 2024-06-13. Definitief. URL: <a href="https://docs.geostandaarden.nl/mim/def-st-mim-20240613/">https://docs.geostandaarden.nl/mim/def-st-mim-20240613/</a>
+    </dd><dt id="bib-semver">[SemVer]</dt><dd>
+      <a href="https://semver.org"><cite>Semantic Versioning 2.0.0</cite></a>. T. Preston-Werner. June 2013. URL: <a href="https://semver.org">https://semver.org</a>
+    </dd></dl>
+  </section></section><p role="navigation" id="back-to-top">
+    <a href="#title"><abbr title="Terug naar boven">↑</abbr></a>
+  </p><div class="dfn-panel" hidden="" role="dialog" aria-modal="true" id="dfn-panel-for-dfn-definitie" aria-label="Links in this document to definition: Definitie">
+      <span class="caret"></span>
+      <div>
+        <a class="self-link" href="#dfn-definitie" aria-label="Permalink for definition: Definitie. Activate to close this dialog.">Permalink</a>
+         
+        
+      </div>
+      <p><b>Referenced in:</b></p>
+      <ul>
+    <li>
+      <a href="#ref-for-dfn-definitie-1" title="§ 2.3 Referenties">§ 2.3 Referenties</a> 
+    </li>
+  </ul>
+    </div><script id="respec-dfn-panel">(() => {
+// @ts-check
+if (document.respec) {
+  document.respec.ready.then(setupPanel);
+} else {
+  setupPanel();
+}
+
+function setupPanel() {
+  const listener = panelListener();
+  document.body.addEventListener("keydown", listener);
+  document.body.addEventListener("click", listener);
+}
+
+function panelListener() {
+  /** @type {HTMLElement | null} */
+  let panel = null;
+  /**
+   * @param {KeyboardEvent|MouseEvent} event
+   */
+  return event => {
+    const { target, type } = event;
+
+    if (!(target instanceof HTMLElement)) return;
+
+    // For keys, we only care about Enter key to activate the panel
+    // otherwise it's activated via a click.
+    if (
+      type === "keydown" &&
+      /** @type {KeyboardEvent} */ (event).key !== "Enter"
+    )
+      return;
+
+    const action = deriveAction(event);
+
+    switch (action) {
+      case "show": {
+        hidePanel(panel);
+        /** @type {HTMLElement | null} */
+        const dfn = target.closest("dfn, .index-term");
+        if (!dfn?.id) break;
+        panel = document.getElementById(`dfn-panel-for-${dfn.id}`);
+        if (!panel) break;
+        const coords = deriveCoordinates(
+          /** @type {MouseEvent|KeyboardEvent} */ (event)
+        );
+        displayPanel(dfn, panel, coords);
+        break;
+      }
+      case "dock": {
+        if (panel) {
+          panel.style.left = "";
+          panel.style.top = "";
+          panel.classList.add("docked");
+        }
+        break;
+      }
+      case "hide": {
+        hidePanel(panel);
+        panel = null;
+        break;
+      }
+    }
+  };
+}
+
+/**
+ * @param {MouseEvent|KeyboardEvent} event
+ */
+function deriveCoordinates(event) {
+  const target = /** @type HTMLElement */ (event.target);
+
+  // We prevent synthetic AT clicks from putting
+  // the dialog in a weird place. The AT events sometimes
+  // lack coordinates, so they have clientX/Y = 0
+  const rect = target.getBoundingClientRect();
+  if (
+    event instanceof MouseEvent &&
+    event.clientX >= rect.left &&
+    event.clientY >= rect.top
+  ) {
+    // The event probably happened inside the bounding rect...
+    return { x: event.clientX, y: event.clientY };
+  }
+
+  // Offset to the middle of the element
+  const x = rect.x + rect.width / 2;
+  // Placed at the bottom of the element
+  const y = rect.y + rect.height;
+  return { x, y };
+}
+
+/**
+ * @param {Event} event
+ */
+function deriveAction(event) {
+  const target = /** @type {HTMLElement} */ (event.target);
+  const hitALink = !!target.closest("a");
+  if (target.closest("dfn:not([data-cite]), .index-term")) {
+    return hitALink ? "none" : "show";
+  }
+  if (target.closest(".dfn-panel")) {
+    if (hitALink) {
+      return target.classList.contains("self-link") ? "hide" : "dock";
+    }
+
+    const panel = /** @type {HTMLElement} */ (target.closest(".dfn-panel"));
+    return panel.classList.contains("docked") ? "hide" : "none";
+  }
+  if (document.querySelector(".dfn-panel:not([hidden])")) {
+    return "hide";
+  }
+  return "none";
+}
+
+/**
+ * @param {HTMLElement} dfn
+ * @param {HTMLElement} panel
+ * @param {{ x: number, y: number }} clickPosition
+ */
+function displayPanel(dfn, panel, { x, y }) {
+  panel.hidden = false;
+  // distance (px) between edge of panel and the pointing triangle (caret)
+  const MARGIN = 20;
+
+  const dfnRects = dfn.getClientRects();
+  // Find the `top` offset when the `dfn` can be spread across multiple lines
+  let closestTop = 0;
+  let minDiff = Infinity;
+  for (const rect of dfnRects) {
+    const { top, bottom } = rect;
+    const diffFromClickY = Math.abs((top + bottom) / 2 - y);
+    if (diffFromClickY < minDiff) {
+      minDiff = diffFromClickY;
+      closestTop = top;
+    }
+  }
+
+  const top = window.scrollY + closestTop + dfnRects[0].height;
+  const left = x - MARGIN;
+  panel.style.left = `${left}px`;
+  panel.style.top = `${top}px`;
+
+  // Find if the panel is flowing out of the window
+  const panelRect = panel.getBoundingClientRect();
+  const SCREEN_WIDTH = Math.min(window.innerWidth, window.screen.width);
+  if (panelRect.right > SCREEN_WIDTH) {
+    const newLeft = Math.max(MARGIN, x + MARGIN - panelRect.width);
+    const newCaretOffset = left - newLeft;
+    panel.style.left = `${newLeft}px`;
+    /** @type {HTMLElement | null} */
+    const caret = panel.querySelector(".caret");
+    if (caret) caret.style.left = `${newCaretOffset}px`;
+  }
+
+  // As it's a dialog, we trap focus.
+  // TODO: when <dialog> becomes a implemented, we should really
+  // use that.
+  trapFocus(panel, dfn);
+}
+
+/**
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function trapFocus(panel, dfn) {
+  /** @type NodeListOf<HTMLAnchorElement> elements */
+  const anchors = panel.querySelectorAll("a[href]");
+  // No need to trap focus
+  if (!anchors.length) return;
+
+  // Move focus to first anchor element
+  const first = anchors.item(0);
+  first.focus();
+
+  const trapListener = createTrapListener(anchors, panel, dfn);
+  panel.addEventListener("keydown", trapListener);
+
+  // Hiding the panel releases the trap
+  const mo = new MutationObserver(records => {
+    const [record] = records;
+    const target = /** @type HTMLElement */ (record.target);
+    if (target.hidden) {
+      panel.removeEventListener("keydown", trapListener);
+      mo.disconnect();
+    }
+  });
+  mo.observe(panel, { attributes: true, attributeFilter: ["hidden"] });
+}
+
+/**
+ *
+ * @param {NodeListOf<HTMLAnchorElement>} anchors
+ * @param {HTMLElement} panel
+ * @param {HTMLElement} dfn
+ * @returns
+ */
+function createTrapListener(anchors, panel, dfn) {
+  const lastIndex = anchors.length - 1;
+  let currentIndex = 0;
+  /**
+   * @param {KeyboardEvent} event
+   */
+  return event => {
+    switch (event.key) {
+      // Hitting "Tab" traps us in a nice loop around elements.
+      case "Tab": {
+        event.preventDefault();
+        currentIndex += event.shiftKey ? -1 : +1;
+        if (currentIndex < 0) {
+          currentIndex = lastIndex;
+        } else if (currentIndex > lastIndex) {
+          currentIndex = 0;
+        }
+        anchors.item(currentIndex).focus();
+        break;
+      }
+
+      // Hitting "Enter" on an anchor releases the trap.
+      case "Enter":
+        hidePanel(panel);
+        break;
+
+      // Hitting "Escape" returns focus to dfn.
+      case "Escape":
+        hidePanel(panel);
+        dfn.focus();
+        return;
+    }
+  };
+}
+
+/** @param {HTMLElement | null} panel */
+function hidePanel(panel) {
+  if (!panel) return;
+  panel.hidden = true;
+  panel.classList.remove("docked");
+}
+})()</script><div class="sidelabel">Geonovum Handreiking - Document</div><script src="https://gitdocumentatie.logius.nl/publicatie/respec/fixup.js"></script></body></html>
